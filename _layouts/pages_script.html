@@ -1,0 +1,4 @@
+---
+---
+{% assign vPageKey = page.url | split: "." | first | split: "_" | last | remove: "/" %}{% capture vPageFile %}assets/script_{{ vPageKey }}.js{% endcapture %}
+{% include {{ vPageFile }} %}

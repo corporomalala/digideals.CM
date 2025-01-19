@@ -1,0 +1,79 @@
+		var tagPrimeButton = document.querySelector(".js-primeButton"),
+			tagPrimeInput = document.querySelector(".js-primeInput"),
+			tagPrimeMap = document.querySelector(".js-primeMap"),
+			tagPrimeText = document.querySelector(".js-primeText");
+
+        var map = L.map('map').setView([-26.2041, 28.0473], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        const locations = {
+            "Partner 1 - HF": { lat: -26.1234, lng: 28.1234 },
+            "Partner 2 - CC": { lat: -26.2041, lng: 28.0473 }
+        };
+
+        function haversine(coord1, coord2) {
+            const R = 6371; // Radius of the Earth in kilometers
+            const dLat = (coord2.lat - coord1.lat) * Math.PI / 180;
+            const dLon = (coord2.lng - coord1.lng) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(coord1.lat * Math.PI / 180) * Math.cos(coord2.lat * Math.PI / 180) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.asin(Math.sqrt(a));
+            return R * c; // Distance in kilometers
+        }
+
+        function checkDelivery(e) {
+			e.preventDefault();
+			
+            const address = tagPrimeInput.value;
+            const resultElement = tagPrimeText;
+            resultElement.innerText = ""; // Clear previous results
+
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+                .then(response => response.json())
+                .then(data => {
+					tagPrimeMap.classList.add("is-active");
+					
+                    if (data.length > 0) {
+                        const addressCoords = {
+                            lat: parseFloat(data[0].lat),
+                            lng: parseFloat(data[0].lon)
+                        };
+
+                        // Check distance from both locations
+                        let results = [];
+                        for (const [locationName, coords] of Object.entries(locations)) {
+                            const distance = haversine(addressCoords, coords);
+                            results.push(`${locationName}: ${distance.toFixed(2)} km - ${distance <= 7 ? "Within delivery area" : "Outside delivery area"}`);
+                        }
+						
+						tagPrimeMap.classList.remove("is-grey");
+						tagPrimeMap.classList.remove("is-color");
+
+                        // Display results
+//                        resultElement.innerText = results.join('\n');
+						
+						// Display results
+						if (results.some(result => result.includes("Within"))) {
+							resultElement.innerText = "Wonderful, your address is eligible for Prime courier with DigiDeals.";
+							tagPrimeMap.classList.add("is-color");
+						} else {
+							resultElement.innerText = "Unfortunately, you are not eligible for Prime courier with DigiDeals. Your address is not near a DigiDeals warehouse.";
+							tagPrimeMap.classList.add("is-grey");
+						}
+
+                        L.marker(addressCoords).addTo(map).bindPopup(address).openPopup();
+                        map.setView(addressCoords, 13); // Center the map on the address
+                    } else {
+                        resultElement.innerText = "Address not found. Double-check or be more specific. Add the city, for example.";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultElement.innerText = "An error occurred while geocoding the address.";
+                });
+        }
+
+        tagPrimeButton.addEventListener('click', checkDelivery);

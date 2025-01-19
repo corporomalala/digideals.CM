@@ -1,0 +1,6 @@
+---
+---
+{% include assets/reset.css %}
+
+{% assign vPageKey = page.url | split: "." | first | split: "_" | last %}	{% capture vPageFile %}assets/style_{{ vPageKey }}.css{% endcapture %}
+{% include {{ vPageFile }} %}
