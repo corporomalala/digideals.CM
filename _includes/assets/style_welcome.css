@@ -54,18 +54,18 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-cta-promo-form { border-radius: .25em .25em 0 0 ; }
 	
 	/*** .banner ***/
-	.banner-content-cta { display: flex; }
-	.banner-content-cta { align-items: flex-start !important; }
-	
 	.banner-ad { width: 100%; }
 	
+	.banner-content-cta-promo {
+		position: relative;
+		
+		display: inline-block;
+		margin: 1.9em auto;
+	}
 	.banner-content-cta-promo-a {
 		display: inline-block;
 		padding: 1em;
 		margin: 0 auto;
-	}
-	.banner-content-cta-promo {
-		position: relative;
 	}
 	.banner-content-cta-promo-form {
 		position: absolute; bottom: 2em;
@@ -171,8 +171,6 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-hgroup-title { font-size: 2.5em; }
 	
 	/*** PAGES: WELCOME ==> .banner ***/
-	.banner-content-cta { flex-direction: column-reverse; }
-	
 	.banner { text-align: center; }
 	
 	.banner-hgroup {
@@ -181,7 +179,7 @@ html, body, main { width: 100%; height: 100%; }
 	.banner {
 		padding: 0 1em;
 	}
-	.banner-content-cta-p {
+	.banner-content-cta-text {
 		padding: 1em 0;
 	}
 	
@@ -206,7 +204,7 @@ html, body, main { width: 100%; height: 100%; }
 		vertical-align: bottom;
 	}
 	.banner-ad,
-	.banner-content-cta-p {
+	.banner-content-cta-text {
 		padding: 0 1.9em 1.9em 1.9em;
 	}
 	.banner-content {
