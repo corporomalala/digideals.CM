@@ -91,19 +91,24 @@
 	function checkVoucher(e) {
 		e.preventDefault();
 		
-		var iVoucherCheck = false;
-		for (var i = 0; i < aVouchers.length; i++) {
-			var iVoucher = aVouchers[i],
-				iCode = Object.keys(iVoucher)[0];
-
-			if (iCode === tagVoucherInput.value) { iVoucherCheck = true; break; }
-		}
-		
-		if (iVoucherCheck === true) {
-			tagVoucherMessage.textContent = "Your voucher code is still valid.";
+		if(tagVoucherInput.value == "") {
+			tagVoucherMessage.textContent = "";
 		}
 		else {
-			tagVoucherMessage.textContent = "Code is invalid or expired.";
+			var iVoucherCheck = false;
+			for (var i = 0; i < aVouchers.length; i++) {
+				var iVoucher = aVouchers[i],
+					iCode = Object.keys(iVoucher)[0];
+
+				if (iCode === tagVoucherInput.value) { iVoucherCheck = true; break; }
+			}
+			
+			if (iVoucherCheck === true) {
+				tagVoucherMessage.textContent = "Your voucher code is still valid.";
+			}
+			else {
+				tagVoucherMessage.textContent = "Code is invalid or expired.";
+			}
 		}
 	}
 	tagVoucherForm.addEventListener("submit", checkVoucher);
