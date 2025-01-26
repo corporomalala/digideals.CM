@@ -125,7 +125,7 @@ html, body, main { width: 100%; height: 100%; }
 	
 	/*** PAGES: WELCOME ==> .banner ***/
 	.banner-hgroup {
-		position: relative; top: 1em;
+		padding-top: 1em;
 	}
 	.banner {
 		padding: 0 1em;
@@ -144,8 +144,9 @@ html, body, main { width: 100%; height: 100%; }
 	
 	/*** PAGES: WELCOME ==> .banner ***/
 	.banner-hgroup {
-		position: relative; left: 15%; top: 1.9em;
+		position: relative; left: 15%;
 		width: 85%;
+		padding-top: 1.9em;
 	}
 	.banner-ad,
 	.banner-content {
