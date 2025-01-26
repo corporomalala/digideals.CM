@@ -3,17 +3,21 @@ html, body, main { width: 100%; height: 100%; }
 /*** END CANCEL ***/
 
 /*** Z-INDEXES ***/
+.banner-ad, .banner-content,
 .prime-map { position: relative; z-index: 10; }
+.banner-hgroup,
 .prime-check,
 .prime-search { position: relative; z-index: 20; }
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
+.banner-content-cta-a,
 .prime-check_dock,
 .prime-search-button { color: white; }
 
 .prime-map { background-color: #eee; }
 
+.banner-content-cta-a,
 .prime-check_dock { background-color: black; }
 .prime-search-button { background-color: black !important; }
 /*** END COLORS ***/
@@ -29,47 +33,27 @@ html, body, main { width: 100%; height: 100%; }
 .footer-copyrights,
 .prime-check_dock { text-align: center; }
 .footer-copyrights a { text-decoration: underline; }
+.banner-hgroup-title { text-transform: uppercase; }
 /*** END FONTS ***/
 
-/*** MEDIA ***/	
-.banner2-ad-of-logo-img { filter: opacity(.1); }
-/*
-.banner2-ad-of-logo:nth-child(1) { background-image: url("../../assets/images/icon_messenger_black.png"); }
-.banner2-ad-of-logo:nth-child(2) { background-image: url("../../assets/images/icon_facebook_black.png"); }
-.banner2-ad-of-logo {
-	background-repeat: no-repeat;
-	background-size: auto 100%;
-	
-	background: none !important;
-}
-	.banner2-ad-of-logo:nth-child(1) { background-position: center; }
-	.banner2-ad-of-logo:nth-child(2) { background-position: center left; }
-*/
-
+/*** MEDIA ***/
 .prime-search-icon { background-image: url("../../assets/images/icon_home_black.png"); }
 .prime-search-icon { background-size: cover; }
-
-.banner2-login-facebook {// filter: grayscale(100%); }
 /*** END MEDIA ***/
 
 /*** PAGES: WELCOME ***/
 	/*** COMMONS ***/
 	main { display: flex; flex-direction: column; }
 	.prime { flex: 1; }
-	.banner2-ad-video,
+	.banner-content-cta-a,
 	.prime-check_dock,
 	.prime-search-button,
 	.prime-search-input { border-radius: .25em; }
 	
-	/*** .banner2 ***/
-	.banner2-login { flex-direction: column !important; }
-	
-	.banner2-ad,
-	.banner2-login-text {
-		padding: 1.9em;
-	}
-	.banner2-ad-video {
-		width: 100%;
+	/*** .banner ***/
+	.banner-content-cta { display: flex; }
+	.banner-content-cta-a {
+		padding: 1em;
 	}
 	
 	/*** .footer ***/
@@ -136,14 +120,17 @@ html, body, main { width: 100%; height: 100%; }
 @media screen and (max-width: 50em) {
 	/*** FONTS ***/
 	html, body, main { font-size: 16px; }
+	.banner-hgroup-title { font-size: 2.5em; }
 	
-	/*** PAGES: WELCOME ==> .banner2 ***/
-	.banner2-ad-of-logo-img {
-		width: auto; height: 4em;
+	/*** PAGES: WELCOME ==> .banner ***/
+	.banner-hgroup {
+		position: relative; top: 1em;
 	}
-	
-	.banner2-login-facebook {
-		text-align: center;
+	.banner {
+		padding: 0 1em;
+	}
+	.banner-content-cta-p {
+		padding: 1em 0;
 	}
 	
 	/*** PAGES: WELCOME ==> .prime ***/
@@ -152,17 +139,27 @@ html, body, main { width: 100%; height: 100%; }
 @media screen and (min-width: 50em) {
 	/*** FONTS ***/
 	html, body, main { font-size: 18px; }
+	.banner-hgroup-title { font-size: 3.5em; }
 	
-	/*** PAGES: WELCOME ==> .banner2 ***/
-	.banner2,
-	.banner2-login { display: flex; }
-	.banner2-ad,
-	.banner2-login,
-	.banner2-login-text { flex: 1; }
-	
-	.banner2-ad-of-logo-img {
-		width: auto; height: 6em;
+	/*** PAGES: WELCOME ==> .banner ***/
+	.banner-hgroup {
+		position: relative; left: 15%; top: 1.9em;
+		width: 85%;
 	}
+	.banner-ad,
+	.banner-content {
+		width: 50%;
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	.banner-ad,
+	.banner-content-cta-p {
+		padding: 0 1.9em 1.9em 1.9em;
+	}
+	.banner-content {
+		margin-top: 1.9em;
+	}
+	.banner-content-cta-a { white-space: nowrap; }
 }
 /*** END MEDIA QUERIES ***/
 
@@ -176,13 +173,12 @@ html, body, main { width: 100%; height: 100%; }
 	
 	/*** .d-midWrap ***/
 	.d-midWrap {
-		max-width: 75em;
+		width: 100%; max-width: 75em;
 		margin: auto;
 	}
 /*** END DECORATION ***/
 
 /*** SANDBOX ***/
-.banner2-ad-of { display: none !important; }
 /*** SANDBOX ***/
 
 /*** LIBRARY ***/
