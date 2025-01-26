@@ -1,8 +1,11 @@
-		var tagPrimeButton = document.querySelector(".js-primeButton"),
-			tagPrimeInput = document.querySelector(".js-primeInput"),
-			tagPrimeMap = document.querySelector(".js-primeMap"),
-			tagPrimeText = document.querySelector(".js-primeText");
+/*** DATA ***/
+	var tagPrimeButton = document.querySelector(".js-primeButton"),
+		tagPrimeInput = document.querySelector(".js-primeInput"),
+		tagPrimeMap = document.querySelector(".js-primeMap"),
+		tagPrimeText = document.querySelector(".js-primeText");
+/*** END DATA ***/
 
+/*** LIBRARY ==> map ***/
         var map = L.map('map').setView([-26.2041, 28.0473], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -77,3 +80,4 @@
         }
 
         tagPrimeButton.addEventListener('click', checkDelivery);
+/*** END LIBRARY ==> map ***/

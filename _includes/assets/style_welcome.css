@@ -32,36 +32,44 @@ html, body, main { width: 100%; height: 100%; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/	
-.ad-facebook-logo-img { filter: opacity(.1); }
+.banner-ad-of-logo-img { filter: opacity(.1); }
 /*
-.ad-facebook-logo:nth-child(1) { background-image: url("../../assets/images/icon_messenger_black.png"); }
-.ad-facebook-logo:nth-child(2) { background-image: url("../../assets/images/icon_facebook_black.png"); }
-.ad-facebook-logo {
+.banner-ad-of-logo:nth-child(1) { background-image: url("../../assets/images/icon_messenger_black.png"); }
+.banner-ad-of-logo:nth-child(2) { background-image: url("../../assets/images/icon_facebook_black.png"); }
+.banner-ad-of-logo {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	
 	background: none !important;
 }
-	.ad-facebook-logo:nth-child(1) { background-position: center; }
-	.ad-facebook-logo:nth-child(2) { background-position: center left; }
+	.banner-ad-of-logo:nth-child(1) { background-position: center; }
+	.banner-ad-of-logo:nth-child(2) { background-position: center left; }
 */
 
 .prime-search-icon { background-image: url("../../assets/images/icon_home_black.png"); }
 .prime-search-icon { background-size: cover; }
+
+.banner-login-facebook {// filter: grayscale(100%); }
 /*** END MEDIA ***/
 
 /*** PAGES: WELCOME ***/
 	/*** COMMONS ***/
 	main { display: flex; flex-direction: column; }
 	.prime { flex: 1; }
-	.ad-video,
+	.banner-ad-video,
 	.prime-check_dock,
 	.prime-search-button,
 	.prime-search-input { border-radius: .25em; }
 	
-	/*** .ad ***/
-	.ad {
+	/*** .banner ***/
+	.banner-login { flex-direction: column !important; }
+	
+	.banner-ad,
+	.banner-login-text {
 		padding: 1.9em;
+	}
+	.banner-ad-video {
+		width: 100%;
 	}
 	
 	/*** .footer ***/
@@ -129,10 +137,13 @@ html, body, main { width: 100%; height: 100%; }
 	/*** FONTS ***/
 	html, body, main { font-size: 16px; }
 	
-	/*** PAGES: WELCOME ==> .ad ***/
-	.ad-video { width: 100%; }	
-	.ad-facebook-logo-img {
-		width: auto; height: 6em;
+	/*** PAGES: WELCOME ==> .banner ***/
+	.banner-ad-of-logo-img {
+		width: auto; height: 4em;
+	}
+	
+	.banner-login-facebook {
+		text-align: center;
 	}
 	
 	/*** PAGES: WELCOME ==> .prime ***/
@@ -142,15 +153,15 @@ html, body, main { width: 100%; height: 100%; }
 	/*** FONTS ***/
 	html, body, main { font-size: 18px; }
 	
-	/*** PAGES: WELCOME ==> .ad ***/
-	.ad { display: flex; }
-	.ad { flex-direction: row-reverse; }
-	.ad { align-items: flex-end; }
+	/*** PAGES: WELCOME ==> .banner ***/
+	.banner,
+	.banner-login { display: flex; }
+	.banner-ad,
+	.banner-login,
+	.banner-login-text { flex: 1; }
 	
-	.ad-facebook,
-	.ad-video { width: 50%; }
-	.ad-facebook-logo-img {
-		width: auto; height: 12em;
+	.banner-ad-of-logo-img {
+		width: auto; height: 6em;
 	}
 }
 /*** END MEDIA QUERIES ***/
@@ -169,6 +180,10 @@ html, body, main { width: 100%; height: 100%; }
 		margin: auto;
 	}
 /*** END DECORATION ***/
+
+/*** SANDBOX ***/
+.banner-ad-of { display: none !important; }
+/*** SANDBOX ***/
 
 /*** LIBRARY ***/
 .leaflet-control-attribution { display: none !important; }
