@@ -100,10 +100,10 @@
 		}
 		
 		if (iVoucherCheck === true) {
-			tagVoucherMessage.value = "YES!";
+			tagVoucherMessage.textContent = "Your voucher code is still valid.";
 		}
 		else {
-			alert("NO!");
+			tagVoucherMessage.textContent = "Code is invalid or expired.";
 		}
 	}
 	tagVoucherForm.addEventListener("submit", checkVoucher);
