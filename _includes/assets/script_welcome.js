@@ -1,5 +1,9 @@
 /*** DATA ***/
-	var tagPrimeButton = document.querySelector(".js-primeButton"),
+	var tagVoucherForm = document.querySelector(".js-voucherForm"),
+		tagVoucherInput = document.querySelector(".js-voucherInput"),
+		tagVoucherMessage = document.querySelector(".js-voucherMessage");
+
+	var tagPrimeForm = document.querySelector(".js-primeForm"),
 		tagPrimeInput = document.querySelector(".js-primeInput"),
 		tagPrimeMap = document.querySelector(".js-primeMap"),
 		tagPrimeText = document.querySelector(".js-primeText");
@@ -79,5 +83,28 @@
                 });
         }
 
-        tagPrimeButton.addEventListener('click', checkDelivery);
+        tagPrimeForm.addEventListener('submit', checkDelivery);
 /*** END LIBRARY ==> map ***/
+
+/*** OBS ***/
+	var aVouchers = [{"NEW-NOW-1234": "2025-01-26"}, {"NEW-FEB-1234": "2025-02-01"}];
+	function checkVoucher(e) {
+		e.preventDefault();
+		
+		var iVoucherCheck = false;
+		for (var i = 0; i < aVouchers.length; i++) {
+			var iVoucher = aVouchers[i],
+				iCode = Object.keys(iVoucher)[0];
+
+			if (iCode === tagVoucherInput.value) { iVoucherCheck = true; break; }
+		}
+		
+		if (iVoucherCheck === true) {
+			tagVoucherMessage.value = "YES!";
+		}
+		else {
+			alert("NO!");
+		}
+	}
+	tagVoucherForm.addEventListener("submit", checkVoucher);
+/*** END OBS ***/

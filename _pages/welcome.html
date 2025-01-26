@@ -3,6 +3,7 @@ permalink: /
 
 scripts: "on"
 ---
+		<input type="checkbox" id="chkbx4promo" name="chkbx4promo" checked />
 		<main>
 			<section class="banner d-midWrap">
 				<hgroup class="banner-hgroup">
@@ -20,7 +21,21 @@ scripts: "on"
 					<div class="banner-content-cta d-cssCentered">
 						<p class="banner-content-cta-p">Your ultimate destination for unbeatable offers and cutting-edge gadgets. Madam Ella is here, to provide you with top-notch products designed to make your life easier and more exciting.</p>
 						
-						<a href="https://www.facebook.com/profile.php?id=61571517723326" class="banner-content-cta-a"><span class="d-textExtra">View on </span>Facebook</a>
+						
+						<div class="banner-content-cta-promo">
+							<label for="chkbx4promo" class="banner-content-cta-promo-a u-btn">Check Promo Code</label>
+							<form class="banner-content-cta-promo-form js-voucherForm">
+								<h5 class="banner-content-cta-promo-form-title">Enter your <br />Voucher:</h5>
+								<fieldset class="js-voucherFieldset_get">
+									<input type="text" class="js-voucherInput" placeholder="xxx-xxx-xxxx" />
+									<input type="submit" class="u-btn" value="&rarr;" />
+									
+									<p class="js-voucherMessage"></p>
+								</fieldset>
+								
+								<label for="chkbx4promo" class="banner-content-cta-promo-form-x u-btn">x</label>
+							</form>
+						</div>
 					</div>
 					
 					<div>
@@ -41,11 +56,11 @@ scripts: "on"
 
 				<div id="map" class="prime-map js-primeMap is-grey"></div>
 
-				<form class="prime-search"><div class="prime-search_dock d-midWrap">
+				<form class="prime-search js-primeForm"><div class="prime-search_dock d-midWrap">
 					<span class="prime-search-icon"></span>
 					<input type="banner2-address" class="prime-search-input js-primeInput" placeholder="Enter Full Address" />
 					
-					<input type="submit" class="prime-search-button js-primeButton" value="Check Map" />
+					<input type="submit" class="prime-search-button u-btn js-primeButton" value="Check Map" />
 				</div></form>
 			</div></section>
 			
