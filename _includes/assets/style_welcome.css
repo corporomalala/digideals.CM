@@ -54,6 +54,11 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-cta-promo-form { border-radius: .25em .25em 0 0 ; }
 	
 	/*** .banner ***/
+	.banner {
+		border-width: .19em 0 0 0; border-style: solid;
+		border-color: black;
+	}
+	
 	.banner-ad { width: 100%; }
 	
 	.banner-content-cta-promo {
