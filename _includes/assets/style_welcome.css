@@ -7,7 +7,11 @@ html, body, main { width: 100%; height: 100%; }
 .prime-check,
 .prime-search { position: relative; z-index: 20; }
 
-.banner-content-cta-promo { position: relative; z-index: 30; }
+.banner-content-message-portrait-caption { position: relative; z-index: 30; }
+.banner-content-message-portrait-img { position: relative; z-index: 40; }
+.banner-content-message-icon { position: relative; z-index: 50; }
+
+.banner-content-cta-promo { position: relative; z-index: 60; }
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
@@ -18,6 +22,7 @@ html, body, main { width: 100%; height: 100%; }
 
 .banner-content-cta-promo-form { background-color: #AAA; }
 
+.banner-content-message-icon,
 .prime-check_dock { background-color: black; }
 .u-btn { background-color: black !important; }
 /*** END COLORS ***/
@@ -39,6 +44,9 @@ html, body, main { width: 100%; height: 100%; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
+.banner-content-message-icon { background-image: url("../../assets/images/icon_facebook_white.png"); }
+.banner-content-message-icon { background-size: cover; }
+
 .prime-search-icon { background-image: url("../../assets/images/icon_home_black.png"); }
 .prime-search-icon { background-size: cover; }
 /*** END MEDIA ***/
@@ -48,6 +56,7 @@ html, body, main { width: 100%; height: 100%; }
 	main { display: flex; flex-direction: column; }
 	.prime { flex: 1; }
 	.banner-content-cta-promo-a,
+	.banner-content-message-icon,
 	.prime-check_dock,
 	.prime-search-button,
 	.prime-search-input { border-radius: .25em; }
@@ -61,6 +70,9 @@ html, body, main { width: 100%; height: 100%; }
 	
 	.banner-ad { width: 100%; }
 	
+	.banner-content {
+		position: relative;
+	}
 	.banner-content-cta-promo {
 		position: relative;
 		
@@ -102,6 +114,25 @@ html, body, main { width: 100%; height: 100%; }
 		display: inline-block;
 		padding: .25em .45em;
 		border-radius: 50% .25em 50% 50%;
+	}
+	
+	.banner-content-message {
+		display: inline-block;
+	}
+	.banner-content-message-icon {
+		position: absolute; top: 2.5em; left: .5em;
+		width: 1.9em; height: 1.9em;
+		display: block;
+		margin: auto;
+	}
+	.banner-content-message-portrait {
+		position: relative;
+	}
+	.banner-content-message-portrait-img {
+		position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+		width: 7em;
+		margin: auto;
+		border-radius: 50%;
 	}
 	
 	/*** .footer ***/
@@ -163,7 +194,11 @@ html, body, main { width: 100%; height: 100%; }
 /*** INTERACTIVITY ***/
 .u-btn { cursor: pointer; }
 
+.banner-content-message-portrait-img:hover,
+.banner-content-message-portrait-img:active,
+.banner-content-message-portrait-img:focus,
 .prime-map.is-grey { filter: grayscale(100%); }
+.banner-content-message-portrait-img { filter: grayscale(0%); }
 
 .banner-content-cta-promo-form { height: 0; overflow: hidden; }
 #chkbx4promo:checked ~ main .banner-content-cta-promo-form { height: auto; }
@@ -186,6 +221,11 @@ html, body, main { width: 100%; height: 100%; }
 	}
 	.banner-content-cta-text {
 		padding: 1em 0;
+	}
+	.banner-content-message {
+		position: relative;
+		
+		display: none;
 	}
 	
 	/*** PAGES: WELCOME ==> .prime ***/
@@ -215,6 +255,9 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content {
 		margin-top: 1.9em;
 	}
+	.banner-content-message {
+		position: absolute; top: 0; right: 3em;
+	}
 }
 /*** END MEDIA QUERIES ***/
 
@@ -226,12 +269,36 @@ html, body, main { width: 100%; height: 100%; }
 		justify-content: center;
 	}
 	
+	/*** .d-curvedText ***/
+	.d-curvedText { display: flex; }
+	.d-curvedText { justify-content: center; }
+
+	.d-curvedText {
+		width: 10em; height: 10em;
+		transform: rotate(-45deg);
+	}
+	.d-curvedText span {
+		position: absolute;
+		height: 50%;
+		transform-origin: bottom center;
+	}
+	{% for i in (1..100) %}.d-curvedText span:nth-child({{ i }}) { transform: rotate({{ i | times: 10 }}deg); } {% endfor %}
+	
+	/*** .d-flexSpacer ***/
+	.d-flexSpacer { display: block; height: 10vw; }
+	
 	/*** .d-midWrap ***/
 	.d-midWrap {
 		width: 100%; max-width: 75em;
 		margin: auto;
 	}
 /*** END DECORATION ***/
+
+/*** ANIMATION ***/
+	/*** doSpeech ***/
+	.banner-content-message-portrait-img { from{ background-image: url("/assets/images/"); } to {} }
+	
+/*** END ANIMATION ***/
 
 /*** SANDBOX ***/
 /*** SANDBOX ***/
