@@ -48,6 +48,8 @@ html, body, main { width: 100%; height: 100%; }
 	
 .footer-copyrights,
 .prime-check_dock { text-align: center; }
+.banner-content-cta-promo-form,
+.banner-content-cta-tracker-form { text-align: left; }
 .banner-content-cta-tracker-form-progress-step-details span,
 .footer-copyrights a { text-decoration: underline; }
 .banner-content-cta-tracker-form-progress-step-title,
