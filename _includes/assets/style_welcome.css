@@ -340,7 +340,7 @@ html, body, main { width: 100%; height: 100%; }
 		padding: 1.9em;
 	}
 	.banner-content-message {
-		position: absolute; top: 0; right: 3em;
+		position: absolute; bottom: 100%; right: 3em;
 	}
 	
 	/*** DECORATION ***/
