@@ -21,6 +21,10 @@ html, body, main { width: 100%; height: 100%; }
 
 .prime-map { background-color: #eee; }
 
+.banner-content-cta-tracker-form-progress-step-checkbox:before,
+.banner-content-cta-tracker-form-progress-step-checkbox:after { background-color: #ddd; }
+.banner-content-cta-tracker-form-progress-step-details { color: #ddd; }
+
 .banner-content-cta-promo-form,
 .banner-content-cta-tracker-form { background-color: #AAA; }
 
@@ -36,10 +40,13 @@ html, body, main { width: 100%; height: 100%; }
 * {font-family:"Arial Black", sans-serif;}
 
 .prime-check-title { font-size: 1.9em; }
-
+.banner-content-cta-tracker-form-progress-step-details { font-size: .75em; }
+	
 .footer-copyrights,
 .prime-check_dock { text-align: center; }
+.banner-content-cta-tracker-form-progress-step-details span,
 .footer-copyrights a { text-decoration: underline; }
+.banner-content-cta-tracker-form-progress-step-title,
 .banner-hgroup-title { text-transform: uppercase; }
 
 .banner-content-cta-promo-a,
@@ -49,6 +56,22 @@ html, body, main { width: 100%; height: 100%; }
 /*** MEDIA ***/
 .banner-content-message-icon { background-image: url("../../assets/images/icon_facebook_white.png"); }
 .banner-content-message-icon { background-size: cover; }
+
+.banner-content-cta-tracker-form-progress-step:nth-child(1).is-waiting:before { background-image: url("/assets/images/icon_order-received_lined.png"); }
+	.banner-content-cta-tracker-form-progress-step:nth-child(1):hover:before,
+	.banner-content-cta-tracker-form-progress-step:nth-child(1).is-complete:before { background-image: url("/assets/images/icon_order-received_color.png"); }
+.banner-content-cta-tracker-form-progress-step:nth-child(2).is-waiting:before { background-image: url("/assets/images/icon_order-processed_lined.png"); }
+	.banner-content-cta-tracker-form-progress-step:nth-child(2):hover:before,
+	.banner-content-cta-tracker-form-progress-step:nth-child(2).is-complete:before { background-image: url("/assets/images/icon_order-processed_color.png"); }
+.banner-content-cta-tracker-form-progress-step:nth-child(3).is-waiting:before { background-image: url("/assets/images/icon_order-shipped_lined.png"); }
+	.banner-content-cta-tracker-form-progress-step:nth-child(3):hover:before,
+	.banner-content-cta-tracker-form-progress-step:nth-child(3).is-complete:before { background-image: url("/assets/images/icon_order-shipped_color.png"); }
+.banner-content-cta-tracker-form-progress-step:nth-child(4).is-waiting:before { background-image: url("/assets/images/icon_order-delivered_lined.png"); }
+	.banner-content-cta-tracker-form-progress-step:nth-child(4):hover:before,
+	.banner-content-cta-tracker-form-progress-step:nth-child(4).is-complete:before { background-image: url("/assets/images/icon_order-delivered_color.png"); }
+		.banner-content-cta-tracker-form-progress-step:before {
+			background-size: cover;
+		}
 
 .prime-search-icon { background-image: url("../../assets/images/icon_home_black.png"); }
 .prime-search-icon { background-size: cover; }
@@ -128,6 +151,47 @@ html, body, main { width: 100%; height: 100%; }
 		padding: .25em .45em;
 		border-radius: 50% .25em 50% 50%;
 	}
+
+	.banner-content-cta-tracker-form-progress {
+		margin-bottom: .5em;
+	}
+	.banner-content-cta-tracker-form-progress-step {
+		position: relative;
+		padding: .5em 0;
+		padding-left: 2.5em;
+		padding-right: 1.9em;
+		
+		overflow: hidden;
+	}
+	.banner-content-cta-tracker-form-progress-step:before {
+		content: "";
+		position: absolute; top: .5em; left: 0;
+		width: 1.9em; height: 1.9em;
+	}
+		.banner-content-cta-tracker-form-progress-step:nth-child(3):before { top: 0; }
+	.banner-content-cta-tracker-form-progress-step-checkbox {
+		position: absolute; top: .5em; right: 0;
+		width: 1.5em; height: 1.5em;
+	}
+	.banner-content-cta-tracker-form-progress-step-checkbox:after {
+		content: "...";
+		position: absolute; top: 0; right: 0;
+		width: 1.5em; height: 1.5em;
+		display: block;
+		
+		border-radius: 50%;
+		text-align: center;
+	}
+	.banner-content-cta-tracker-form-progress-step-checkbox:before {
+		content: "";
+		position: absolute; top: -1em; left: 0; right: 0;
+		width: .5em; height: 1000%;
+		display: block;
+		margin: 0 auto;
+	}
+		.banner-content-cta-tracker-form-progress-step:first-child .banner-content-cta-tracker-form-progress-step-checkbox:before { top: 0; }
+		.banner-content-cta-tracker-form-progress-step:last-child .banner-content-cta-tracker-form-progress-step-checkbox:before { top: initial; bottom: 0; }
+	
 	
 	.banner-content-message {
 		display: inline-block;
@@ -276,15 +340,15 @@ html, body, main { width: 100%; height: 100%; }
 		padding: 1.9em;
 	}
 	.banner-content-message {
-		position: absolute; bottom: 100%; right: 3em;
+		position: absolute; top: 0; right: 3em;
 	}
 	
 	/*** DECORATION ***/
-	.d-flexSpacer { max-height: 10vw; }
+	.d-flexSpacer { max-height: 10vw; display: none; }
 }
 @media screen and (min-width: 100em) {
 	/*** DECORATION ***/
-	.d-flexSpacer { max-height: 5vw; }
+	.d-flexSpacer { max-height: 5vw; display: none; }
 }
 /*** END MEDIA QUERIES ***/
 

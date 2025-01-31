@@ -46,14 +46,41 @@ scripts: "on"
 				
 					<div class="banner-content-cta">
 						<div class="banner-content-cta-tracker">
-							<label for="rdb4tracker" class="banner-content-cta-tracker-a u-btn">Track Your Order ID</label>
+							<label for="rdb4tracker" class="banner-content-cta-tracker-a u-btn">Track Your EFT Order ID</label>
 							<form class="banner-content-cta-tracker-form js-trackerForm">
-								<h5 class="banner-content-cta-tracker-form-title">Enter <br />Order Number:</h5>
+								<h5 class="banner-content-cta-tracker-form-title">Enter your <br />Order ID:</h5>
 								<fieldset class="js-trackerFieldset_get">
 									<input type="text" class="js-trackerInput" placeholder="xxxxxxx" />
 									<input type="submit" class="u-btn" value="&rarr;" />
 									
 									<p class="js-trackerMessage"></p>
+									
+									<div class="banner-content-cta-tracker-form-progress">
+										<div class="banner-content-cta-tracker-form-progress-step is-complete">
+											<span class="banner-content-cta-tracker-form-progress-step-title">Received</span>
+											<p class="banner-content-cta-tracker-form-progress-step-details">Order received on <br />NewYear 1, 2025</p>
+											
+											<span class="banner-content-cta-tracker-form-progress-step-checkbox"></span>
+										</div>
+										<div class="banner-content-cta-tracker-form-progress-step is-waiting">
+											<span class="banner-content-cta-tracker-form-progress-step-title">Processed</span>
+											<p class="banner-content-cta-tracker-form-progress-step-details">Package processed by <br />"Corporo Malala" or "Supplier"</p>
+											
+											<span class="banner-content-cta-tracker-form-progress-step-checkbox"></span>
+										</div>
+										<div class="banner-content-cta-tracker-form-progress-step is-waiting">
+											<span class="banner-content-cta-tracker-form-progress-step-title">Shipped</span>
+											<p class="banner-content-cta-tracker-form-progress-step-details">Delivery with PAXI: <br /><span>1234 1234 1234 1234</span></p>
+											
+											<span class="banner-content-cta-tracker-form-progress-step-checkbox"></span>
+										</div>
+										<div class="banner-content-cta-tracker-form-progress-step is-waiting">
+											<span class="banner-content-cta-tracker-form-progress-step-title">Delivered</span>
+											<p class="banner-content-cta-tracker-form-progress-step-details">Package arrived on <br />Today 1, 2025</p>
+											
+											<span class="banner-content-cta-tracker-form-progress-step-checkbox"></span>
+										</div>
+									</div>
 								</fieldset>
 								
 								<label for="rdb4tracker" class="banner-content-cta-tracker-form-x u-btn">x</label>
