@@ -1,5 +1,6 @@
 /*** CANCEL ***/
 html, body, main { width: 100%; height: 100%; }
+.banner-content-cta-messenger { text-indent: -9999px; }
 /*** END CANCEL ***/
 
 /*** Z-INDEXES ***/
@@ -16,8 +17,9 @@ html, body, main { width: 100%; height: 100%; }
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
-.u-btn,
-.prime-check_dock { color: white; }
+.banner-content-cta-messenger,
+.prime-check_dock,
+.u-btn { color: white; }
 
 .prime-map { background-color: #eee; }
 
@@ -25,9 +27,11 @@ html, body, main { width: 100%; height: 100%; }
 .banner-content-cta-tracker-form-progress-step-checkbox:after { background-color: #ddd; }
 .banner-content-cta-tracker-form-progress-step-details { color: #ddd; }
 
+.banner-content-cta-messenger:before,
 .banner-content-cta-promo-form,
 .banner-content-cta-tracker-form { background-color: #AAA; }
 
+.banner-content-cta-messenger,
 .banner-content-message-icon,
 .prime-check_dock { background-color: black; }
 .u-btn { background-color: black !important; }
@@ -37,7 +41,7 @@ html, body, main { width: 100%; height: 100%; }
 @font-face{
 	font-family:"Arial Black";src:url("../../assets/fonts/ariblk.ttf");/*src:url("../../assets/fonts/ALPHABETH.eot") format("embedded-opentype"),url("../../assets/fonts/ALPHABETH.woff2") format("woff2"),url("../../assets/fonts/ALPHABETH.woff") format("woff"),url("../../assets/fonts/ALPHABETH.ttf") format("trutype"),url("../../assets/fonts/ALPHABETH.svg") format("svg");*/}
 
-* {font-family:"Arial Black", sans-serif;}
+* { font-family:"Arial Black", sans-serif; }
 
 .prime-check-title { font-size: 1.9em; }
 .banner-content-cta-tracker-form-progress-step-details { font-size: .75em; }
@@ -54,8 +58,16 @@ html, body, main { width: 100%; height: 100%; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
-.banner-content-message-icon { background-image: url("../../assets/images/icon_facebook_white.png"); }
-.banner-content-message-icon { background-size: cover; }
+.banner-content-message-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
+.banner-content-message-icon { background-size: cover !important; }
+
+.banner-content-cta-messenger:before { background-image: url("/assets/images/icon_facebook_black.png"); }
+.banner-content-cta-messenger:before {
+	background-size: auto 80%;
+	
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
 .banner-content-cta-tracker-form-progress-step:nth-child(1).is-waiting:before { background-image: url("/assets/images/icon_order-received_lined.png"); }
 	.banner-content-cta-tracker-form-progress-step:nth-child(1):hover:before,
@@ -73,7 +85,15 @@ html, body, main { width: 100%; height: 100%; }
 			background-size: cover;
 		}
 
-.prime-search-icon { background-image: url("../../assets/images/icon_home_black.png"); }
+.banner-content-cta-messenger { background-image: url("/assets/images/icon_messenger_white.png"); }
+.banner-content-cta-messenger {
+	background-size: 60%;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.prime-search-icon { background-image: url("/assets/images/icon_home_black.png"); }
 .prime-search-icon { background-size: cover; }
 /*** END MEDIA ***/
 
@@ -81,6 +101,8 @@ html, body, main { width: 100%; height: 100%; }
 	/*** COMMONS ***/
 	main { display: flex; flex-direction: column; }
 	.prime { flex: 1; }
+	.banner-content-cta-messenger,
+	.banner-content-cta-messenger:before,
 	.banner-content-cta-promo-a,
 	.banner-content-cta-tracker-a,
 	.banner-content-message-icon,
@@ -102,6 +124,16 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content {
 		position: relative;
 	}
+	.banner-content-cta-messenger {
+		position: relative;
+		width: 3em;
+	}
+	.banner-content-cta-messenger:before {
+		content: "";
+		position: absolute; top: -.5em; right: -.5em;
+		width: 1.25em; height: 1.25em;
+	}
+	
 	.banner-content-cta-promo,
 		.banner-content-cta-tracker {
 		position: relative;
@@ -109,6 +141,7 @@ html, body, main { width: 100%; height: 100%; }
 		display: inline-block;
 		margin: .25em auto;
 	}
+	.banner-content-cta-messenger,
 	.banner-content-cta-promo-a,
 		.banner-content-cta-tracker-a {
 		display: inline-block;
@@ -157,6 +190,7 @@ html, body, main { width: 100%; height: 100%; }
 	}
 	.banner-content-cta-tracker-form-progress-step {
 		position: relative;
+		min-height: 2.5em;
 		padding: .5em 0;
 		padding-left: 2.5em;
 		padding-right: 1.9em;
@@ -190,7 +224,7 @@ html, body, main { width: 100%; height: 100%; }
 		margin: 0 auto;
 	}
 		.banner-content-cta-tracker-form-progress-step:first-child .banner-content-cta-tracker-form-progress-step-checkbox:before { top: 0; }
-		.banner-content-cta-tracker-form-progress-step:last-child .banner-content-cta-tracker-form-progress-step-checkbox:before { top: initial; bottom: 0; }
+		.banner-content-cta-tracker-form-progress-step:last-child .banner-content-cta-tracker-form-progress-step-checkbox:before { top: initial; bottom: 0; }	
 	
 	
 	.banner-content-message {
@@ -271,6 +305,8 @@ html, body, main { width: 100%; height: 100%; }
 /*** INTERACTIVITY ***/
 .u-btn { cursor: pointer; }
 
+.banner-content-cta-tracker-form-progress-step.is-waiting .banner-content-cta-tracker-form-progress-step-details {// display: none; }
+
 .banner-content-message-portrait-img:hover,
 .banner-content-message-portrait-img:active,
 .banner-content-message-portrait-img:focus,
@@ -340,7 +376,7 @@ html, body, main { width: 100%; height: 100%; }
 		padding: 1.9em;
 	}
 	.banner-content-message {
-		position: absolute; bottom: 100%; right: 3em;
+		position: absolute; bottom: 90%; right: 3em;
 	}
 	
 	/*** DECORATION ***/

@@ -73,13 +73,13 @@ scripts: "on"
 									<div class="banner-content-cta-tracker-form-progress">
 										<div class="banner-content-cta-tracker-form-progress-step is-complete">
 											<span class="banner-content-cta-tracker-form-progress-step-title">Received</span>
-											<p class="banner-content-cta-tracker-form-progress-step-details">Order received on <br />NewYear 1, 2025</p>
+											<p class="banner-content-cta-tracker-form-progress-step-details">Order paid on <br />NewYear 1, 2025</p>
 											
 											<span class="banner-content-cta-tracker-form-progress-step-checkbox"></span>
 										</div>
 										<div class="banner-content-cta-tracker-form-progress-step is-waiting">
 											<span class="banner-content-cta-tracker-form-progress-step-title">Processed</span>
-											<p class="banner-content-cta-tracker-form-progress-step-details">Package processed by <br />"Corporo Malala" or "Supplier"</p>
+											<p class="banner-content-cta-tracker-form-progress-step-details">Package prepped by <br />"Corporo Malala" or "Supplier"</p>
 											
 											<span class="banner-content-cta-tracker-form-progress-step-checkbox"></span>
 										</div>
@@ -100,7 +100,8 @@ scripts: "on"
 								
 								<label for="rdb4tracker" class="banner-content-cta-tracker-form-x u-btn">x</label>
 							</form>
-						</div>
+						</div>{% assign vMessage = "Hello, Madam Ella! I would like to place a new order." %}
+						<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="banner-content-cta-messenger" title="Order on Facebook Messenger">Order on Facebook Messenger</a>
 						
 						<p class="banner-content-cta-text">Your ultimate destination for unbeatable offers and cutting-edge gadgets. Madam Ella is here, to provide you with top-notch products designed to make your life easier and more exciting.</p>
 					</div>
