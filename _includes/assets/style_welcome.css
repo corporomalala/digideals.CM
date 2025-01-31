@@ -252,12 +252,16 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-cta-text {
 		padding: 0 1.9em 1.9em 1.9em;
 	}
-	.banner-content {
-		margin-top: 1.9em;
-	}
 	.banner-content-message {
-		position: absolute; top: 0; right: 3em;
+		position: absolute; bottom: 100%; right: 3em;
 	}
+	
+	/*** DECORATION ***/
+	.d-flexSpacer { max-height: 19vw; }
+}
+@media screen and (min-width: 100em) {
+	/*** DECORATION ***/
+	.d-flexSpacer { max-height: 10vw; }
 }
 /*** END MEDIA QUERIES ***/
 
@@ -283,9 +287,10 @@ html, body, main { width: 100%; height: 100%; }
 		transform-origin: bottom center;
 	}
 	{% for i in (1..100) %}.d-curvedText span:nth-child({{ i }}) { transform: rotate({{ i | times: 10 }}deg); } {% endfor %}
+	.jekyllPlaceholderClass { AAA: AAA; }
 	
 	/*** .d-flexSpacer ***/
-	.d-flexSpacer { display: block; height: 10vw; }
+	.d-flexSpacer { display: block; height: 100vh; }
 	
 	/*** .d-midWrap ***/
 	.d-midWrap {
