@@ -90,7 +90,7 @@
 	var aVouchers = [{"NEW-NOW-1234": "2025-01-26"}, {"NEW-FEB-1234": "2025-02-01"}];
 	function checkVoucher(e) {
 		e.preventDefault();
-		
+
 		if(tagVoucherInput.value == "") {
 			tagVoucherMessage.textContent = "";
 		}
