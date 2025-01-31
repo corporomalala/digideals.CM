@@ -1,4 +1,8 @@
 /*** DATA ***/
+	var tagTrackerForm = document.querySelector(".js-trackerForm"),
+		tagTrackerInput = document.querySelector(".js-trackerInput"),
+		tagTrackerMessage = document.querySelector(".js-trackerMessage");
+		
 	var tagVoucherForm = document.querySelector(".js-voucherForm"),
 		tagVoucherInput = document.querySelector(".js-voucherInput"),
 		tagVoucherMessage = document.querySelector(".js-voucherMessage");
@@ -86,7 +90,7 @@
         tagPrimeForm.addEventListener('submit', checkDelivery);
 /*** END LIBRARY ==> map ***/
 
-/*** OBS ***/
+/*** PROMO CODE ***/
 	var aVouchers = [{"NEW-NOW-1234": "2025-01-26"}, {"NEW-FEB-1234": "2025-02-01"}];
 	function checkVoucher(e) {
 		e.preventDefault();
@@ -112,4 +116,32 @@
 		}
 	}
 	tagVoucherForm.addEventListener("submit", checkVoucher);
-/*** END OBS ***/
+/*** END PROMO CODE ***/
+
+/*** ORDER TRACKER ***/
+	var aOrders = [{"0001234": "RECEIVED"}, {"0004567": "DELIVERED"}];
+	function trackOrderID(e) {
+		e.preventDefault();
+
+		if(tagTrackerInput.value == "") {
+			tagTrackerMessage.textContent = "";
+		}
+		else {
+			var iTrackerCheck = false;
+			for (var i = 0; i < aOrders.length; i++) {
+				var iTracker = aOrders[i],
+					iID = Object.keys(iTracker)[0];
+
+				if (iID === tagTrackerInput.value) { iTrackerCheck = true; break; }
+			}
+			
+			if (iTrackerCheck === true) {
+				tagTrackerMessage.textContent = "Your order ID is still valid.";
+			}
+			else {
+				tagTrackerMessage.textContent = "ID is non-existent.";
+			}
+		}
+	}
+	tagTrackerForm.addEventListener("submit", trackOrderID);
+/*** END ORDER TRACKER ***/
