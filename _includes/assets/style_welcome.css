@@ -91,7 +91,7 @@ html, body, main { width: 100%; height: 100%; }
 	background-repeat: no-repeat;
 }
 
-.banner-content-cta-tracker-form-progress-step.is-complete .banner-content-cta-tracker-form-progress-step-checkbox:after { background-image: url("/assets/images/icon_download_black.png"); }
+.banner-content-cta-tracker-form-progress-step.is-complete .banner-content-cta-tracker-form-progress-step-checkbox:after { background-image: url("/assets/images/icon_checkmark_black.png"); }
 .banner-content-cta-tracker-form-progress-step-checkbox:after {
 	background-size: 75%;
 	
