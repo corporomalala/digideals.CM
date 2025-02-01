@@ -72,16 +72,12 @@ html, body, main { width: 100%; height: 100%; }
 }
 
 .banner-content-cta-tracker-form-progress-step:nth-child(1).is-waiting:before { background-image: url("/assets/images/icon_order-received_lined.png"); }
-	.banner-content-cta-tracker-form-progress-step:nth-child(1):hover:before,
 	.banner-content-cta-tracker-form-progress-step:nth-child(1).is-complete:before { background-image: url("/assets/images/icon_order-received_color.png"); }
 .banner-content-cta-tracker-form-progress-step:nth-child(2).is-waiting:before { background-image: url("/assets/images/icon_order-processed_lined.png"); }
-	.banner-content-cta-tracker-form-progress-step:nth-child(2):hover:before,
 	.banner-content-cta-tracker-form-progress-step:nth-child(2).is-complete:before { background-image: url("/assets/images/icon_order-processed_color.png"); }
 .banner-content-cta-tracker-form-progress-step:nth-child(3).is-waiting:before { background-image: url("/assets/images/icon_order-shipped_lined.png"); }
-	.banner-content-cta-tracker-form-progress-step:nth-child(3):hover:before,
 	.banner-content-cta-tracker-form-progress-step:nth-child(3).is-complete:before { background-image: url("/assets/images/icon_order-shipped_color.png"); }
 .banner-content-cta-tracker-form-progress-step:nth-child(4).is-waiting:before { background-image: url("/assets/images/icon_order-delivered_lined.png"); }
-	.banner-content-cta-tracker-form-progress-step:nth-child(4):hover:before,
 	.banner-content-cta-tracker-form-progress-step:nth-child(4).is-complete:before { background-image: url("/assets/images/icon_order-delivered_color.png"); }
 		.banner-content-cta-tracker-form-progress-step:before {
 			background-size: cover;
@@ -91,6 +87,14 @@ html, body, main { width: 100%; height: 100%; }
 .banner-content-cta-messenger {
 	background-size: 60%;
 
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.banner-content-cta-tracker-form-progress-step.is-complete .banner-content-cta-tracker-form-progress-step-checkbox:after { background-image: url("/assets/images/icon_download_black.png"); }
+.banner-content-cta-tracker-form-progress-step-checkbox:after {
+	background-size: 75%;
+	
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -210,7 +214,7 @@ html, body, main { width: 100%; height: 100%; }
 		width: 1.5em; height: 1.5em;
 	}
 	.banner-content-cta-tracker-form-progress-step-checkbox:after {
-		content: "...";
+		content: "";
 		position: absolute; top: 0; right: 0;
 		width: 1.5em; height: 1.5em;
 		display: block;
@@ -218,6 +222,7 @@ html, body, main { width: 100%; height: 100%; }
 		border-radius: 50%;
 		text-align: center;
 	}
+		.banner-content-cta-tracker-form-progress-step.is-waiting .banner-content-cta-tracker-form-progress-step-checkbox:after { content: "..."; }
 	.banner-content-cta-tracker-form-progress-step-checkbox:before {
 		content: "";
 		position: absolute; top: -1em; left: 0; right: 0;
@@ -306,6 +311,8 @@ html, body, main { width: 100%; height: 100%; }
 
 /*** INTERACTIVITY ***/
 .u-btn { cursor: pointer; }
+
+.banner-content-cta-tracker-form-progress-step.is-waiting .banner-content-cta-tracker-form-progress-step-details { display: none; }
 
 .banner-content-cta-tracker-form-progress-step.is-waiting .banner-content-cta-tracker-form-progress-step-details {// display: none; }
 

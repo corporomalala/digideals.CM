@@ -1,7 +1,8 @@
 /*** DATA ***/
 	var tagTrackerForm = document.querySelector(".js-trackerForm"),
 		tagTrackerInput = document.querySelector(".js-trackerInput"),
-		tagTrackerMessage = document.querySelector(".js-trackerMessage");
+		tagTrackerMessage = document.querySelector(".js-trackerMessage"),
+		tagsTrackerSteps = document.querySelectorAll(".js-trackerSteps");
 		
 	var tagVoucherForm = document.querySelector(".js-voucherForm"),
 		tagVoucherInput = document.querySelector(".js-voucherInput"),
@@ -119,7 +120,10 @@
 /*** END PROMO CODE ***/
 
 /*** ORDER TRACKER ***/
-	var aOrders = [{"0001234": "RECEIVED"}, {"0004567": "DELIVERED"}];
+	var aOrders = [
+					{"0001234": [{"RECEIVED-YES": "Order paid on <br />NewYear 1, 2025"}, {"PROCESSED-NO": "Package prepped by <br />'Corporo Malala' or 'Supplier'"}, {"SHIPPED-NO": "Delivery with PAXI: <br /><span>1234 1234 1234 1234</span>"}, {"DELIVERED-NO": "Package arrived on <br />Today 1, 2025"}]},
+					{"0004567": [{"RECEIVED-YES": "Order paid on <br />NewYear 1, 2025"}, {"PROCESSED-YES": "Package prepped by <br />'Corporo Malala' or 'Supplier'"}, {"SHIPPED-YES": "Delivery with PAXI: <br /><span>1234 1234 1234 1234</span>"}, {"DELIVERED-YES": "Package arrived on <br />Today 1, 2025"}]},
+				];
 	function trackOrderID(e) {
 		e.preventDefault();
 
@@ -128,18 +132,34 @@
 		}
 		else {
 			var iTrackerCheck = false;
+			var aOrderProgress = [];
 			for (var i = 0; i < aOrders.length; i++) {
 				var iTracker = aOrders[i],
 					iID = Object.keys(iTracker)[0];
 
-				if (iID === tagTrackerInput.value) { iTrackerCheck = true; break; }
+				if (iID === tagTrackerInput.value) {
+					iTrackerCheck = true;
+					aOrderProgress = iTracker[iID];
+					break;
+				}
 			}
 			
+			tagsTrackerSteps.forEach(step => { step.classList.remove("is-waiting", "is-complete"); });
 			if (iTrackerCheck === true) {
-				tagTrackerMessage.textContent = "Your order ID is still valid.";
+				tagTrackerMessage.textContent = "";
+				
+				var stepStatus, stepTag;
+				aOrderProgress.forEach((stepData, j) => {
+					stepStatus = Object.keys(stepData)[0];
+					stepTag = tagsTrackerSteps[j];
+					
+					if(stepStatus.endsWith("-YES")){ stepTag.classList.add("is-complete"); }
+					if(stepStatus.endsWith("-NO")){ stepTag.classList.add("is-waiting"); }
+				});
 			}
 			else {
-				tagTrackerMessage.textContent = "ID is non-existent.";
+				tagTrackerMessage.textContent = "ID is invalid.";
+				tagsTrackerSteps.forEach(step => { step.classList.add("is-waiting"); });
 			}
 		}
 	}
