@@ -239,6 +239,7 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-message {
 		position: relative;
 		display: inline-block;
+		vertical-align: top;
 	}
 	.banner-content-message-icon {
 		position: absolute; top: 2.5em; left: .5em;
