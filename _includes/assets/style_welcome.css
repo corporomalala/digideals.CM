@@ -60,8 +60,10 @@ html, body, main { width: 100%; height: 100%; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
-.banner-content-message-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
-.banner-content-message-icon { background-size: cover !important; }
+.banner-content-message:nth-child(1) .banner-content-message-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
+.banner-content-message:nth-child(2) .banner-content-message-icon { background-image: url("/assets/images/icon_pdf_white.png"); }
+.banner-content-message:nth-child(1) .banner-content-message-icon { background-size: cover !important; }
+.banner-content-message:nth-child(2) .banner-content-message-icon { background-size: 75% auto !important; background-position: center; background-repeat: no-repeat; }
 
 .banner-content-cta-messenger:before { background-image: url("/assets/images/icon_facebook_black.png"); }
 .banner-content-cta-messenger:before {
@@ -235,6 +237,7 @@ html, body, main { width: 100%; height: 100%; }
 	
 	
 	.banner-content-message {
+		position: relative;
 		display: inline-block;
 	}
 	.banner-content-message-icon {
@@ -349,9 +352,7 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-cta-text {
 		padding: 1em 0;
 	}
-	.banner-content-message {
-		position: relative;
-		
+	.banner-content-bubbles {
 		display: none;
 	}
 	
@@ -384,8 +385,8 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-cta-text {
 		padding: 1.9em;
 	}
-	.banner-content-message {
-		position: absolute; bottom: 90%; right: 3em;
+	.banner-content-bubbles {
+		position: absolute; top: -19%; right: 3em;
 	}
 	
 	/*** DECORATION ***/
