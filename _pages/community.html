@@ -1,7 +1,7 @@
 ---
 scripts: "on"
 ---
-		<input type="checkbox" id="chkbx4facebook" name="chkbx4facebook" />
+		<input type="checkbox" id="chkbx4facebook" name="chkbx4facebook" checked />
 		<main>
 			<section class="community">
 				<div class="community-header">
@@ -11,7 +11,7 @@ scripts: "on"
 					</hgroup>
 				</div>
 				<section class="community-content d-cssCentered">
-					  <div class="community-content-iframe fb-like" 
+					  <div class="fb-like" 
 						   data-href="https://facebook.com/profile.php?id=61571517723326" 
 						   data-width="100px"
 						   data-layout="standard"
@@ -31,16 +31,18 @@ scripts: "on"
 			</section>
 			
 			<aside class="facebook"><label for="chkbx4facebook" class="facebook-button"></label><div class="facebook_dock d-cssCentered">
-				<!--
-				<iframe src='https://widgets.sociablekit.com/facebook-page-posts/iframe/25525279' frameborder='0' width='100%' height='1000'></iframe>
-				-->
-			
-				<iframe
-					src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61571517723326&tabs=timeline&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-					style="width: 100%; height: 100%;"
-					tabs="timeline,messages"
-					allowTransparency="true" 
-					allow="encrypted-media">
-				</iframe>
+				<div class="facebook-iframe">
+					<!--
+					<iframe src='https://widgets.sociablekit.com/facebook-page-posts/iframe/25525279' frameborder='0' width='100%' height='1000'></iframe>
+					-->
+				
+					<iframe
+						src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61571517723326&tabs=timeline&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+						style="width: 100%; height: 100%;"
+						tabs="timeline,messages"
+						allowTransparency="true" 
+						allow="encrypted-media">
+					</iframe>
+				</div>
 			</div></aside>
 		</main>
