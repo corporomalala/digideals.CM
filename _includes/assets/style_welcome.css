@@ -354,7 +354,8 @@ html, body, main { width: 100%; height: 100%; }
 		padding: 1em 0;
 	}
 	.banner-content-bubbles {
-		display: none;
+//		display: none;
+		margin-top: 1.9em;
 	}
 	
 	/*** PAGES: WELCOME ==> .prime ***/
