@@ -6,6 +6,10 @@ html, body, main { width: 100%; height: 100%; }
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
+.facebook,
+.facebook * { color: white; }
+
+.facebook_dock { background-color: black; }
 /*** END COLORS ***/
 
 /*** FONTS ***/
@@ -14,25 +18,39 @@ html, body, main { width: 100%; height: 100%; }
 
 * {font-family:"Arial Black", sans-serif;}
 
- { font-size: 1.9em; }
+.community-header-hgroup-title { font-size: 1.9em; }
  
-.footer { text-align: center; }
+.community { text-align: center; }
+.community-footer-copyrights a { text-decoration: underline; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/	
 .js-login { filter: grayscale(100%); }
 /*** END MEDIA ***/
 
-/*** PAGES: WELCOME ***/
+/*** PAGES: COMMUNITY ***/
 	/*** COMMONS ***/
-	main { display: flex; flex-direction: column; }
-	.section { flex: 1; }
+	main { display: flex; }
 
-	/*** .footer ***/
-	.footer {
+	/*** .community ***/
+	.community { display: flex; flex-direction: column; }
+	.community-content { flex: 1; }
+	
+	.community-footer {
 		padding: 1em;
 	}
-/*** END PAGES: WELCOME ***/
+	.community-header-hgroup {
+		padding: 1.9em;
+	}
+	
+	/*** .facebook ***/
+	.facebook_dock {
+		position: relative;
+		width: 100%; height: 100%;
+		
+		padding: 1em;
+	}
+/*** END PAGES: COMMUNITY ***/
 
 /*** INTERACTIVITY ***/
 /*** END INTERACTIVITY ***/
@@ -41,10 +59,21 @@ html, body, main { width: 100%; height: 100%; }
 @media screen and (max-width: 50em) {
 	/*** FONTS ***/
 	html, body, main { font-size: 16px; }
+	
+	/*** COMMONS ***/
+	.community { width: 100%; }
+	.facebook { width: 4em; }
 }
 @media screen and (min-width: 50em) {
 	/*** FONTS ***/
 	html, body, main { font-size: 18px; }
+	
+	/*** COMMONS ***/
+	.community { width: 70%; }
+	.facebook { width: 30%; }
+	
+	/*** PAGE: COMMUNITY ==> .facebook ***/
+	.facebook { animation: initial !important; }
 }
 /*** END MEDIA QUERIES ***/
 
@@ -61,4 +90,17 @@ html, body, main { width: 100%; height: 100%; }
 		max-width: 75em;
 		margin: auto;
 	}
+		.community {
+			max-width: 52.5em !important;
+//			max-width: 40.5em !important;
+		}
 /*** END DECORATION ***/
+
+/*** ANIMATION ***/
+	.facebook { animation: slide 1s alternate infinite; }
+	@keyframes slide { from { padding-left: 1em; } to { padding-left: 0; } }
+/*** END ANIMATION ***/
+
+/*** CSS-HACKS ***/
+main { justify-content: center; }
+/*** END CSS-HACKS ***/
