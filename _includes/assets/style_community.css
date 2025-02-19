@@ -44,6 +44,10 @@ html, body, main { width: 100%; height: 100%; }
 	}
 	
 	/*** .facebook ***/
+	.facebook {
+		position: relative;
+		max-width: 100wv;
+	}
 	.facebook_dock {
 		position: relative;
 		width: 100%; height: 100%;
@@ -62,7 +66,31 @@ html, body, main { width: 100%; height: 100%; }
 	
 	/*** COMMONS ***/
 	.community { width: 100%; }
-	.facebook { width: 4em; }
+	main { padding-right: 3em; }
+	
+	/*** PAGE: COMMUNITY ==> .facebook ***/
+	.facebook {
+		position: fixed; top: 0; right: 0;
+		width: 100%; height: 100%;
+	}
+	.facebook-button {
+		position: absolute; top: 0; left: 0; z-index: 100;
+			height: 100%;
+		display: block;
+	}
+	
+	/*** PAGE: COMMUNITY ==> .INTERACTIVITY ***/
+	.facebook iframe { display: none !important; }
+	#chkbx4facebook:checked ~ main  .facebook iframe { display: block !important; }
+
+	.facebook { width: 3em; }
+	#chkbx4facebook:checked ~ main .facebook { width: 100% !important; padding-left: 2em; }
+	
+	.facebook-button { width: 100%; }
+	#chkbx4facebook:checked ~ main .facebook-button { width: 2em !important; }
+	
+	.facebook-button { background-color: black; }
+	#chkbx4facebook:checked ~ main .facebook-button { background-color: white !important; }
 }
 @media screen and (min-width: 50em) {
 	/*** FONTS ***/
@@ -98,7 +126,7 @@ html, body, main { width: 100%; height: 100%; }
 
 /*** ANIMATION ***/
 	.facebook { animation: slide 1s alternate infinite; }
-	@keyframes slide { from { padding-left: 1em; } to { padding-left: 0; } }
+	@keyframes slide { from { width: 3em; } to { width: 2em; } }
 /*** END ANIMATION ***/
 
 /*** CSS-HACKS ***/
