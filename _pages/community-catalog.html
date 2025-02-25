@@ -1,0 +1,28 @@
+---
+scripts: "on"
+permalink: /community/catalog/
+---
+		{% for file in site.data.catalog %}{% for data in file %}<input type="radio" id="rdb4{{ data[0] | capitalize }}" name="rdbs4Ctlgs"{% if data[0] contains '0001' %} checked{% endif %} />{% endfor %}{% endfor %}
+		<main>
+			<section class="catalog d-midWrap">
+				<div class="catalog-content"><ol class="catalog-content-list">{% for file in site.data.catalog %}{% assign iCatalog = forloop.index %}{% assign tCatalog = forloop.length %}{% for data in file %}
+					<li class="catalog-content-list-item nthChild-{{ iCatalog }}"><div class="catalog-content-product">
+						<figure class="catalog-content-product-figure d-cssCentered">
+							<img src="/assets/images/catalog/{{ data[0] }}.png" class="catalog-content-product-figure-img" />
+						</figure>
+
+						<nav class="catalog-content-product-nav d-cssCentered">
+							<a href="/assets/images/catalog/{{ data[0] }}.png" class="catalog-content-product-nav-button is-icon is-image" download>Download Image</a>
+						
+							{% assign vMessage = "Hello, Madam Ella! I would like to place a new order." %}
+							<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="catalog-content-product-nav-button is-text" title="Place an Order">Place an Order</a>
+						</nav>
+					</div></li>{% endfor %}{% endfor %}
+				</ol></div>
+				<nav class="catalog-menu"><ol class="catalog-menu-list">
+					{% for i in (1..10) %}{% for file in site.data.catalog %}{% for data in file %}<li class="catalog-menu-list-item">
+						<label for="rdb4{{ data[0] | capitalize }}" class="catalog-menu-label"><img src="/assets/images/catalog/{{ data[0] | capitalize }}.png" class="catalog-menu-label-img" /></label>
+					</li>{% endfor %}{% endfor %}{% endfor %}
+				</ol></nav>
+			</section>
+		</main>

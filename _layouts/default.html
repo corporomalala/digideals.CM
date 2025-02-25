@@ -4,12 +4,12 @@
 <html>
 	<head>
 		{% include components/meta-tags.html %}
-		<script src="https://raw.githubusercontent.com/intobinary/CDN.IB/refs/heads/main/recaptcha.js"></script>
 	</head>
 	<body>
 		{{ content }}
 		
 		{% include assets/script.dependencies.js %}
+		<script src="https://ib-cdn.netlify.app/global.js"></script>
 		<script src="/assets/scripts/digideals-dot-corporomalala-dot-com_{{ page.slug }}.js"></script>
 	</body>
 </html>
