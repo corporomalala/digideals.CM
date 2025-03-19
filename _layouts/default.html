@@ -1,9 +1,12 @@
 ---
 ---
 <!DOCTYPE html>
-<html>
+<html attr-page="{{ page.name | split: '.' | first }}">
 	<head>
-		{% include components/meta-tags.html %}
+		{% include components/meta-tags.html %}{% if page.name contains "community" %}
+		<link rel="stylesheet" href="/assets/stylesheets/digideals-dot-corporomalala-dot-com_GLOBAL-community.css" />
+		<script src="/assets/scripts/digideals-dot-corporomalala-dot-com_GLOBAL-community.js"></script>
+		{% endif %}
 	</head>
 	<body>
 		{{ content }}

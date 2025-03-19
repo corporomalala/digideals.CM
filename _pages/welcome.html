@@ -21,51 +21,24 @@ scripts: "on"
 					<source src="/assets/videos/ad.mp4" type="video/mp4" />
 				</video><div class="banner-content">
 					<div class="banner-content-bubbles">
-						<div class="banner-content-message">
-							<figure class="banner-content-message-portrait d-cssCentered">
-								<a href="https://fb.watch/xrFbErE0B8/"><img src="/assets/images/portrait.png" class="banner-content-message-portrait-img" /></a>
-								<figcaption class="banner-content-message-portrait-caption d-curvedText">
-									<span>W</span>
-									<span>E</span>
-									<span>L</span>
-									<span>C</span>
-									<span>O</span>
-									<span>M</span>
-									<span>E</span>
-									<span></span>
-									<span>M</span>
-									<span>E</span>
-									<span>S</span>
-									<span>S</span>
-									<span>A</span>
-									<span>G</span>
-									<span>E</span>
+						<div class="uBubble">
+							<figure class="uBubble-portrait d-cssCentered">
+								<a href="https://fb.watch/xrFbErE0B8/"><img src="/assets/images/portrait.png" class="uBubble-portrait-img" /></a>
+								<figcaption class="uBubble-portrait-caption d-curvedText">{% assign vCurvedText = "Welcome Message" | split: "" %}{% for i in vCurvedText %}
+				<span>{{ i | upcase }}</span>{% endfor %}
 								</figcaption>	
 							</figure>
-							<span class="banner-content-message-icon"></span>
+							<span class="uBubble-icon"></span>
 						</div>
 
-						<div class="banner-content-message">
-							<figure class="banner-content-message-portrait d-cssCentered">
-								<img src="/assets/images/amazon.png" class="banner-content-message-portrait-img" />
-								<figcaption class="banner-content-message-portrait-caption d-curvedText">
-									<span>A</span>
-									<span>M</span>
-									<span>A</span>
-									<span>Z</span>
-									<span>O</span>
-									<span>N</span>
-									<span></span>
-									<span>C</span>
-									<span>O</span>
-									<span>L</span>
-									<span>L</span>
-									<span>A</span>
-									<span>B</span>
-									<span>S</span>
+						<div class="uBubble">
+							<figure class="uBubble-portrait d-cssCentered">
+								<img src="/assets/images/amazon.png" class="uBubble-portrait-img" />
+								<figcaption class="uBubble-portrait-caption d-curvedText">{% assign vCurvedText = "Amazon Collabs" | split: "" %}{% for i in vCurvedText %}
+				<span>{{ i | upcase }}</span>{% endfor %}
 								</figcaption>	
 							</figure>
-							<span class="banner-content-message-icon"></span>
+							<span class="uBubble-icon"></span>
 						</div>
 					</div>
 					

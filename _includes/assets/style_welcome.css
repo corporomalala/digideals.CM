@@ -8,9 +8,9 @@ html, body, main { width: 100%; height: 100%; }
 .prime-check,
 .prime-search { position: relative; z-index: 20; }
 
-.banner-content-message-portrait-caption { position: relative; z-index: 30; }
-.banner-content-message-portrait-img { position: relative; z-index: 40; }
-.banner-content-message-icon { position: relative; z-index: 50; }
+.uBubble-portrait-caption { position: relative; z-index: 30; }
+.uBubble-portrait-img { position: relative; z-index: 40; }
+.uBubble-icon { position: relative; z-index: 50; }
 
 .banner-content-cta-promo,
 .banner-content-cta-tracker { position: relative; z-index: 60; }
@@ -32,7 +32,7 @@ html, body, main { width: 100%; height: 100%; }
 .banner-content-cta-tracker-form { background-color: #AAA; }
 
 .banner-content-cta-messenger,
-.banner-content-message-icon,
+.uBubble-icon,
 .prime-check_dock { background-color: black; }
 .u-btn { background-color: black !important; }
 /*** END COLORS ***/
@@ -60,10 +60,10 @@ html, body, main { width: 100%; height: 100%; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
-.banner-content-message:nth-child(1) .banner-content-message-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
-.banner-content-message:nth-child(2) .banner-content-message-icon { background-image: url("/assets/images/icon_pdf_white.png"); }
-.banner-content-message:nth-child(1) .banner-content-message-icon { background-size: cover !important; }
-.banner-content-message:nth-child(2) .banner-content-message-icon { background-size: 75% auto !important; background-position: center; background-repeat: no-repeat; }
+.uBubble:nth-child(1) .uBubble-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
+.uBubble:nth-child(2) .uBubble-icon { background-image: url("/assets/images/icon_pdf_white.png"); }
+.uBubble:nth-child(1) .uBubble-icon { background-size: cover !important; }
+.uBubble:nth-child(2) .uBubble-icon { background-size: 75% auto !important; background-position: center; background-repeat: no-repeat; }
 
 .banner-content-cta-messenger:before { background-image: url("/assets/images/icon_facebook_black.png"); }
 .banner-content-cta-messenger:before {
@@ -105,6 +105,30 @@ html, body, main { width: 100%; height: 100%; }
 .prime-search-icon { background-size: cover; }
 /*** END MEDIA ***/
 
+/*** UTIILITIES ***/
+	/*** .u-bubbles ***/
+	.uBubble {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.uBubble-icon {
+		position: absolute; top: 2.5em; left: .5em;
+		width: 1.9em; height: 1.9em;
+		display: block;
+		margin: auto;
+	}
+	.uBubble-portrait {
+		position: relative;
+	}
+	.uBubble-portrait-img {
+		position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+		width: 7em;
+		margin: auto;
+		border-radius: 50%;
+	}
+/*** END UTIILITIES ***/
+
 /*** PAGES: WELCOME ***/
 	/*** COMMONS ***/
 	main { display: flex; flex-direction: column; }
@@ -113,7 +137,7 @@ html, body, main { width: 100%; height: 100%; }
 	.banner-content-cta-messenger:before,
 	.banner-content-cta-promo-a,
 	.banner-content-cta-tracker-a,
-	.banner-content-message-icon,
+	.uBubble-icon,
 	.prime-check_dock,
 	.prime-search-button,
 	.prime-search-input { border-radius: .25em; }
@@ -236,27 +260,6 @@ html, body, main { width: 100%; height: 100%; }
 		.banner-content-cta-tracker-form-progress-step:last-child .banner-content-cta-tracker-form-progress-step-checkbox:before { top: initial; bottom: 0; }	
 	
 	
-	.banner-content-message {
-		position: relative;
-		display: inline-block;
-		vertical-align: top;
-	}
-	.banner-content-message-icon {
-		position: absolute; top: 2.5em; left: .5em;
-		width: 1.9em; height: 1.9em;
-		display: block;
-		margin: auto;
-	}
-	.banner-content-message-portrait {
-		position: relative;
-	}
-	.banner-content-message-portrait-img {
-		position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-		width: 7em;
-		margin: auto;
-		border-radius: 50%;
-	}
-	
 	/*** .footer ***/
 	.footer {
 		padding: 1em;
@@ -320,11 +323,11 @@ html, body, main { width: 100%; height: 100%; }
 
 .banner-content-cta-tracker-form-progress-step.is-waiting .banner-content-cta-tracker-form-progress-step-details {// display: none; }
 
-.banner-content-message-portrait-img:hover,
-.banner-content-message-portrait-img:active,
-.banner-content-message-portrait-img:focus,
+.uBubble-portrait-img:hover,
+.uBubble-portrait-img:active,
+.uBubble-portrait-img:focus,
 .prime-map.is-grey { filter: grayscale(100%); }
-.banner-content-message-portrait-img { filter: grayscale(0%); }
+.uBubble-portrait-img { filter: grayscale(0%); }
 
 .banner-content-cta-promo-form,
 	.banner-content-cta-tracker-form { height: 0; overflow: hidden; }
@@ -434,12 +437,6 @@ html, body, main { width: 100%; height: 100%; }
 		margin: auto;
 	}
 /*** END DECORATION ***/
-
-/*** ANIMATION ***/
-	/*** doSpeech ***/
-	.banner-content-message-portrait-img { from{ background-image: url("/assets/images/"); } to {} }
-	
-/*** END ANIMATION ***/
 
 /*** SANDBOX ***/
 /*** SANDBOX ***/

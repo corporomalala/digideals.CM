@@ -2,27 +2,45 @@
 scripts: "on"
 permalink: /community/catalog/
 ---
-		{% for file in site.data.catalog %}{% for data in file %}<input type="radio" id="rdb4{{ data[0] | capitalize }}" name="rdbs4Ctlgs"{% if data[0] contains '0001' %} checked{% endif %} />{% endfor %}{% endfor %}
+		{% assign aCatalogReversed = site.data.catalog | reverse %}
+		{% for file in aCatalogReversed %}{% if forloop.first %}{% capture vFirstI %}{% for firstData in file %}{{ firstData[0] }}{% endfor %}{% endcapture %}{% endif %}{% for data in file %}<input type="radio" id="rdb4{{ data[0] | capitalize }}" class="js-rdbs" name="rdbs4Ctlgs"{% if data[0] contains vFirstI %} checked{% endif %} />{% endfor %}{% endfor %}
 		<main>
-			<section class="catalog d-midWrap">
-				<div class="catalog-content"><ol class="catalog-content-list">{% for file in site.data.catalog %}{% assign iCatalog = forloop.index %}{% assign tCatalog = forloop.length %}{% for data in file %}
-					<li class="catalog-content-list-item nthChild-{{ iCatalog }}"><div class="catalog-content-product">
+			{% include components/menu-log.html %}
+		
+			<section class="catalog d-midWrap">{% for file in aCatalogReversed %}{% endfor %}
+				<div class="catalog-content"><ol class="catalog-content-list">{% for file in aCatalogReversed %}{% assign iCatalog = forloop.length | minus: forloop.index | plus: 1 %}{% assign tCatalog = forloop.length %}{% for data in file %}
+					<li class="catalog-content-list-item nthChild-{{ data[0] | remove: 'ctlg' }}"><div class="catalog-content-product">
 						<figure class="catalog-content-product-figure d-cssCentered">
-							<img src="/assets/images/catalog/{{ data[0] }}.png" class="catalog-content-product-figure-img" />
+							<img src="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-content-product-figure-img" />
 						</figure>
 
 						<nav class="catalog-content-product-nav d-cssCentered">
-							<a href="/assets/images/catalog/{{ data[0] }}.png" class="catalog-content-product-nav-button is-icon is-image" download>Download Image</a>
+							<label for="rdb4Ctlg00{% if iCatalog == tCatalog %}01{% else %}{% if iCatalog <= 8 %}0{% endif %}{{ iCatalog | plus: 1 }}{% endif %}" class="js-btn{{ data[0] | capitalize }}_prev">Prev</label>
+						
+							<a href="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-content-product-nav-button is-icon is-image" download>Download Image</a>{% for content in data[1] %}{% if content.code contains "pckg" %}
+							<a href="/assets/images/catalog/{{ content.code }}.mp4" class="catalog-content-product-nav-button is-icon is-video" download>Download Image</a>
+							<!--
+							<video class="videos-video" controls preload="none" loading="lazy">
+								<source src="/assets/videos/trailer.mp4" type="video/mp4" />
+							</video>-->{% endif %}{% endfor %}
 						
 							{% assign vMessage = "Hello, Madam Ella! I would like to place a new order." %}
 							<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="catalog-content-product-nav-button is-text" title="Place an Order">Place an Order</a>
+							
+							<label for="rdb4Ctlg00{% if iCatalog == 1 %}{{ tCatalog }}{% else %}{% if iCatalog <= 10 %}0{% endif %}{{ iCatalog | minus: 1 }}{% endif %}" class="js-btn{{ data[0] | capitalize }}_next">Next</label>
 						</nav>
 					</div></li>{% endfor %}{% endfor %}
 				</ol></div>
 				<nav class="catalog-menu"><ol class="catalog-menu-list">
-					{% for i in (1..10) %}{% for file in site.data.catalog %}{% for data in file %}<li class="catalog-menu-list-item">
-						<label for="rdb4{{ data[0] | capitalize }}" class="catalog-menu-label"><img src="/assets/images/catalog/{{ data[0] | capitalize }}.png" class="catalog-menu-label-img" /></label>
-					</li>{% endfor %}{% endfor %}{% endfor %}
+					{% for i in (1..1) %}{% for file in aCatalogReversed %}{% assign iMenu = forloop.index %}{% assign tMenu = forloop.length %}{% assign AD = 9 %}{% assign iAD = AD %}{% for data in file %}<li class="catalog-menu-list-item nthChild-{{ data[0] | remove: 'ctlg' }}">
+						<label for="rdb4{{ data[0] | capitalize }}" class="catalog-menu-label"><img src="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-menu-label-img" /></label>
+					</li>{% if iMenu == iAD %}
+					{% assign iAD = iAD | plus: AD %}
+					<ul class="catalog-menu-sublist">{% for i in (1..2) %}
+						<li class="catalog-menu-sublist-item"><img src="/assets/images/catalog/pckg0001.png" /></li>{% endfor %}
+					</ul>
+					
+					{% endif %}{% endfor %}{% endfor %}{% endfor %}
 				</ol></nav>
 			</section>
 		</main>

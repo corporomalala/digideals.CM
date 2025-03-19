@@ -1,4 +1,8 @@
 ---
 ---
-{% assign vPageKey = page.url | split: "." | first | split: "_" | last | remove: "/" %}{% capture vPageFile %}assets/script_{{ vPageKey }}.js{% endcapture %}
-{% include {{ vPageFile }} %}
+{% if page.url contains ".js" and page.url contains "GLOBAL" %}
+	{% include assets/script_GLOBAL-community.js %}
+{% else %}
+	{% assign vPageKey = page.url | split: "." | first | split: "_" | last | remove: "/" %}{% capture vPageFile %}assets/script_{{ vPageKey }}.js{% endcapture %}
+	{% include {{ vPageFile }} %}
+{% endif %}

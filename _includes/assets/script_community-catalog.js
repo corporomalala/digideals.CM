@@ -2,7 +2,6 @@
 /*** END DATA ***/
 
 /*** LIBRARY ==> facebook ***/
-
 /*
   window.fbAsyncInit = function() {
     FB.init({
@@ -25,3 +24,22 @@
    }(document, 'script', 'facebook-jssdk'));
 */
 /*** END LIBRARY ***/
+
+/*** PAGE: CATALOG ***/
+	/*** navigation ***/
+	window.addEventListener("keydown", checkKeyPress);
+	function checkKeyPress(e) {
+		var vClassName = "";
+		var vProductID = document.querySelector(".js-rdbs:checked").getAttribute("id").replace("rdb4", "");
+		
+		switch(e.key) {
+			case "ArrowLeft":
+				vClassName = ".js-btn" + vProductID + "_prev";
+				break;
+			case "ArrowRight":
+				vClassName = ".js-btn" + vProductID + "_next";
+				break;
+		}
+		document.querySelector(vClassName).click();
+	}
+/*** END PAGE: CATALOG ***/

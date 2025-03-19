@@ -1,14 +1,76 @@
 - "ctlg0001":
+  - type: "marketing"
+  - code: "mktg0001"
   - supplier: "splr0001"
 - "ctlg0002":
+  - type: "marketing"
+  - code: "mktg0002"
   - supplier: "splr0001"
 - "ctlg0003":
+  - type: "bundle"
+  - code: "pckg0001"
   - supplier: "splr0001"
 - "ctlg0004":
+  - type: "marketing"
+  - code: "mktg0003"
   - supplier: "splr0001"
 - "ctlg0005":
+  - type: "marketing"
+  - code: "mktg0004"
   - supplier: "splr0001"
 - "ctlg0006":
+  - type: "bundle"
+  - code: "pckg0002"
   - supplier: "splr0001"
 - "ctlg0007":
+  - type: "marketing"
+  - code: "mktg0005"
+  - supplier: "splr0001"
+- "ctlg0008":
+  - type: "marketing"
+  - code: "mktg0006"
+  - supplier: "splr0001"
+- "ctlg0009":
+  - type: "bundle"
+  - code: "pckg0003"
+  - supplier: "splr0001"
+- "ctlg0010":
+  - type: "marketing"
+  - code: "mktg0007"
+  - supplier: "splr0001"
+- "ctlg0011":
+  - type: "marketing"
+  - code: "mktg0008"
+  - supplier: "splr0001"
+- "ctlg0012":
+  - type: "bundle"
+  - code: "pckg0004"
+  - supplier: "splr0001"
+- "ctlg0013":
+  - type: "marketing"
+  - code: "mktg0009"
+  - supplier: "splr0001"
+- "ctlg0014":
+  - type: "marketing"
+  - code: "mktg0010"
+  - supplier: "splr0001"
+- "ctlg0015":
+  - type: "bundle"
+  - code: "pckg0005"
+  - supplier: "splr0001"
+- "ctlg0016":
+  - type: "marketing"
+  - code: "mktg0011"
+  - supplier: "splr0001"
+- "ctlg0017":
+  - type: "marketing"
+  - code: "mktg0012"
+  - supplier: "splr0001"
+- "ctlg0018":
+  - type: "marketing"
+  - code: "mktg0013"
+  - supplier: "splr0001"
+- "ctlg0019":
+  - type: "marketing"
+  - code: "mktg0014"
   - supplier: "splr0001"

@@ -12,7 +12,8 @@ html, body, main { width: 100%; height: 100%; }
 
 .catalog-content-product-nav-button:before { background-color: #AAA; }
 
-.catalog-content-product-nav-button { background-color: black; }
+.catalog-content-product-nav-button,
+.catalog-menu { background-color: black; }
 /*** END COLORS ***/
 
 /*** FONTS ***/
@@ -53,15 +54,15 @@ html, body, main { width: 100%; height: 100%; }
 
 	/*** .catalog ***/
 	.catalog,
-	.catalog-content-product { display: flex; }
+	.catalog-content-product,
+	.catalog-menu-sublist { display: flex; }
 	.catalog-content-product { flex-direction: column; }
 	.catalog-content,
-	.catalog-content-product-figure { flex: 1; }
+	.catalog-content-product-figure,
+	.catalog-menu-sublist-item { flex: 1; }
 
 	.catalog-content {
 		width: 100%;
-		
-		border: 1px solid purple;
 	}
 	.catalog-content-list,
 	.catalog-content-list-item,
@@ -72,14 +73,14 @@ html, body, main { width: 100%; height: 100%; }
 	}
 	.catalog-content-product-figure {
 		width: 100%; height: 1%;
-		
-		border: 1px solid green;
 	}
 	.catalog-content-product-figure-img {
 		width: auto; max-width: 100%; height: 100%;
 	}
 	.catalog-content-product-nav {
 		padding: .5em;
+		
+		border: 1px solid purple;
 	}
 	.catalog-content-product-nav-button {
 		position: relative;
@@ -99,31 +100,36 @@ html, body, main { width: 100%; height: 100%; }
 	}
 	
 	.catalog-menu {
-//		border: 1px solid purple;
 	}
 	.catalog-menu-list,
-	.catalog-menu-list-item {
+	.catalog-menu-list-item,
+	.catalog-menu-sublist-item {
 		padding: .5em;
 	}
-	.catalog-menu-list {
-//		border: 1px solid green;
-	}
-	.catalog-menu-list-item {
+	.catalog-menu-list {}
+	.catalog-menu-list-item,
+	.catalog-menu-sublist-item {
 		width: 33.3333%;
 		display: inline-block;
 	}
+		
 	.catalog-menu-label-img {
-		border: 1px solid purple;
 	}
 /*** END PAGES: CATALOG ***/
 
 /*** INTERACTIVITY ***/
 .catalog-menu-label { cursor: pointer; }
 
-.catalog-content-list-item { display: none; }
-{% for file in site.data.catalog %}{% for data in file %}
-#rdb4{{ data[0] | capitalize }}:checked ~ main .catalog-content-list-item.nthChild-{{ data[0] | split: "" | last }},{% endfor %}{% endfor %}
+.catalog-content-list-item { display: none; }{% for file in site.data.catalog %}{% for data in file %}
+#rdb4{{ data[0] | capitalize }}:checked ~ main .catalog-content-list-item.nthChild-{{ data[0] | remove: "ctlg" }},{% endfor %}{% endfor %}
 .jekyllPlaceholderClassName { display: block; }
+
+.catalog-menu-label-img { filter: grayscale(100%); }{% for file in site.data.catalog %}{% for data in file %}
+#rdb4{{ data[0] | capitalize }}:checked ~ main .catalog-menu-list-item.nthChild-{{ data[0] | remove: "ctlg" }} .catalog-menu-label-img,{% endfor %}{% endfor %}
+.jekyllPlaceholderClassName,
+.catalog-menu-label-img:hover,
+.catalog-menu-label-img:active,
+.catalog-menu-label-img:focus { filter: grayscale(0%) !important; }
 /*** END INTERACTIVITY ***/
 
 /*** MEDIA QUERIES ***/

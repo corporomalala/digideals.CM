@@ -1,0 +1,75 @@
+/*** Z-INDEXES ***/
+.uMenu { position: relative; z-index: 969; }
+
+.uBubble-portrait-caption { position: relative; z-index: 979; }
+.uBubble-portrait-img { position: relative; z-index: 989; }
+.uBubble-icon { position: relative; z-index: 999; }
+/*** END Z-INDEXES ***/
+
+/*** COLORS ***/
+.uBubble-icon { color: black; }
+/*** END COLORS ***/
+
+/*** MEDIA ***/
+.uBubble-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
+.uBubble-icon { background-size: cover !important; }
+/*** END MEDIA ***/
+
+/*** UTILITIES ***/
+	/*** .u-bubbles ***/
+	.uBubble {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.uBubble-icon {
+		position: absolute; top: 2.5em; left: .5em;
+		width: 1.9em; height: 1.9em;
+		display: block;
+		margin: auto;
+	}
+	.uBubble-portrait {
+		position: relative;
+	}
+	.uBubble-portrait-img {
+		position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+		width: 7em;
+		margin: auto;
+		border-radius: 50%;
+	}
+	
+	/*** .uMenu ***/
+	.uMenu {
+		position: fixed; top: 1.9em; left: 1.9em;
+	}
+/*** END UTILITIES ***/
+
+/*** COMPONENTS ***/
+	/*** GLOBAL ***/
+	.uBubble-icon { border-radius: .25em; }
+/*** END COMPONENTS ***/
+
+/*** INTERACTIVITY ***/
+.uBubble-portrait-img:hover,
+.uBubble-portrait-img:active,
+.uBubble-portrait-img:focus { filter: grayscale(100%); }
+.uBubble-portrait-img { filter: grayscale(0%); }
+/*** END INTERACTIVITY ***/
+
+/*** DECORATION ***/
+	/*** .d-curvedText ***/
+	.d-curvedText { display: flex; }
+	.d-curvedText { justify-content: center; }
+
+	.d-curvedText {
+		width: 10em; height: 10em;
+		transform: rotate(-45deg);
+	}
+	.d-curvedText span {
+		position: absolute;
+		height: 50%;
+		transform-origin: bottom center;
+	}
+	{% for i in (1..100) %}.d-curvedText span:nth-child({{ i }}) { transform: rotate({{ i | times: 10 }}deg); } {% endfor %}
+	.jekyllPlaceholderClass { AAA: AAA; }
+/*** END DECORATION ***/
