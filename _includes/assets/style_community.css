@@ -2,9 +2,6 @@
 html, body, main { width: 100%; height: 100%; }
 /*** END CANCEL ***/
 
-/*** Z-INDEXES ***/
-/*** END Z-INDEXES ***/
-
 /*** COLORS ***/
 .facebook,
 .facebook * { color: white; }
@@ -63,9 +60,16 @@ html, body, main { width: 100%; height: 100%; }
 /*** END INTERACTIVITY ***/
 
 /*** MEDIA QUERIES ***/
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 25em) {
+	/*** FONTS ***/
+	html, body, main { font-size: 14px; }
+}
+@media screen and (min-width: 25em) {
 	/*** FONTS ***/
 	html, body, main { font-size: 16px; }
+}
+@media screen and (max-width: 50em) {
+	/*** FONTS ***/
 	
 	/*** COMMONS ***/
 	.community { width: 100%; }

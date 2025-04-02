@@ -3,9 +3,26 @@ permalink: /
 
 scripts: "on"
 ---
-		<input type="checkbox" id="rdb4tracker" name="rdb4tracker" />
-		<input type="checkbox" id="rdb4promo" name="rdb4promo" />
+		<input type="checkbox" id="chkbx4tracker" name="chkbx4tracker" />
+		<input type="checkbox" id="chkbx4promo" name="chkbx4promo" />
+		<input type="checkbox" id="chkbx4menu" name="chkbx4menu" />
 		<main>
+			<nav class="menu d-midWrap">
+				<label for="chkbx4menu" class="menu-button u-btn">Menu</label>
+				<div class="menu-content">
+					<div class="menu-content-links">
+						<a href="/" class="menu-content-links-a">Home</a>
+						<br />
+						<del href="/" class="menu-content-links-a">Community Login</del>
+						<br />
+						<del href="/" class="menu-content-links-a">View Catalog</del>
+					</div>
+					<div class="menu-content-links">
+						<a href="https://github.com/intobinary/CDN.IB/raw/refs/heads/main/desktop-apps/digideals.exe" class="menu-content-links-a" download>Download Desktop App</a>
+					</div>
+				</div>
+			</nav>
+		
 			<section class="banner d-midWrap">
 				<hgroup class="banner-hgroup">
 					<h2 class="banner-hgroup-subtitle">DigiDeals with Madam Ella</h2>
@@ -14,7 +31,7 @@ scripts: "on"
 					<h1 class="banner-hgroup-title">Making Everyday Shopping an Exciting Moment of Adventure</h1>
 					<h1 class="banner-hgroup-title">A shopping adventure, where every new deal is a treasure you will cherish.</h1>
 					-->
-					<h1 class="banner-hgroup-title">A shopping adventure, where every new Facebook deal is a treasure you'll always cherish.</h1>
+					<h1 class="banner-hgroup-title">Every new deal is a treasure you'll always cherish.</h1>
 				</hgroup>
 								
 				<video class="banner-ad" preload="auto" controls>
@@ -46,7 +63,7 @@ scripts: "on"
 				
 					<div class="banner-content-cta">
 						<div class="banner-content-cta-promo">
-							<label for="rdb4promo" class="banner-content-cta-promo-a u-btn">Check Promo Code</label>
+							<label for="chkbx4promo" class="banner-content-cta-promo-a u-btn">Check Promo Code</label>
 							<form class="banner-content-cta-promo-form js-voucherForm">
 								<h5 class="banner-content-cta-promo-form-title">Enter your <br />Voucher:</h5>
 								<fieldset class="js-voucherFieldset_get">
@@ -56,12 +73,12 @@ scripts: "on"
 									<p class="js-voucherMessage"></p>
 								</fieldset>
 								
-								<label for="rdb4promo" class="banner-content-cta-promo-form-x u-btn">x</label>
+								<label for="chkbx4promo" class="banner-content-cta-promo-form-x u-btn">x</label>
 							</form>
 						</div>
 						<br />
 						<div class="banner-content-cta-tracker">
-							<label for="rdb4tracker" class="banner-content-cta-tracker-a u-btn">Track Your EFT Order</label>
+							<label for="chkbx4tracker" class="banner-content-cta-tracker-a u-btn">Track Your EFT Order</label>
 							<form class="banner-content-cta-tracker-form js-trackerForm">
 								<h5 class="banner-content-cta-tracker-form-title">Enter your <br />Order ID:</h5>
 								<fieldset class="js-trackerFieldset_get">
@@ -98,10 +115,10 @@ scripts: "on"
 									</div>
 								</fieldset>
 								
-								<label for="rdb4tracker" class="banner-content-cta-tracker-form-x u-btn">x</label>
+								<label for="chkbx4tracker" class="banner-content-cta-tracker-form-x u-btn">x</label>
 							</form>
 						</div>{% assign vMessage = "Hello, Madam Ella! I would like to place a new order." %}
-						<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="banner-content-cta-messenger" title="Order on Facebook Messenger">Order on Facebook Messenger</a>
+						<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="banner-content-cta-messenger u-btn u-button has-icon" title="Order on Facebook Messenger">Order on Facebook Messenger</a>
 						
 						<p class="banner-content-cta-text">Your ultimate destination for unbeatable offers and cutting-edge gadgets. Madam Ella is here, to provide you with top-notch products designed to make your life easier and more exciting.</p>
 					</div>
@@ -113,6 +130,40 @@ scripts: "on"
 						data-hide-cover="false"
 						data-show-facepile="true"></div>
 					</div>
+				</div>
+			</section>
+			
+			<section class="display d-midWrap">
+				<div class="display-box"><div class="display-box_dock">
+					<p>A Facebook store with tons of weekly new gadgets and tools. Make an inquiry and start your order; simply send us a message on Facebook.</p>
+					{% assign vMessage = "Hello, Madam Ella! I would like to place a new order." %}
+					<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="display-box-button is-text u-btn u-button has-icon" title="Place an Order">Place an Order</a>
+				</div></div>
+				<div class="display-box d-cssCentered">
+					<video controls preload="none" loading="lazy">
+						<source src="/assets/images/display_video.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<div class="display-box d-cssCentered">
+					<img src="/assets/images/display_product-1_b.png" />
+				</div>
+				<div class="display-box">
+					<img src="/assets/images/display_post-1.png" />
+				</div>
+				<div class="display-box d-cssCentered">
+					<img src="/assets/images/display_product-2_b.png" />
+				</div>
+				<div class="display-box d-cssCentered">
+					<img src="/assets/images/display_product-3.png" />
+				</div>
+				<div class="display-box">
+					<img src="/assets/images/display_post-2.png" />
+				</div>
+				<div class="display-box">
+					<img src="/assets/images/display_post-3.png" />
+				</div>
+				<div class="display-box">
+					<p>Follow the Facebook page as we build our community. <a href="https://www.facebook.com/profile.php?id=61571517723326/">Visit Facebook</a></p>
 				</div>
 			</section>
 		
@@ -128,7 +179,8 @@ scripts: "on"
 					<span class="prime-search-icon"></span>
 					<input type="banner2-address" class="prime-search-input js-primeInput" placeholder="Enter Full Address" />
 					
-					<input type="submit" class="prime-search-button u-btn js-primeButton" value="Check Map" />
+					<input type="submit" class="prime-search-button u-btn js-primeButton d-laptop" value="Check Map" />
+					<input type="submit" class="prime-search-button u-btn js-primeButton d-mobile" value="Check" />
 				</div></form>
 			</div></section>
 			

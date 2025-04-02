@@ -8,10 +8,14 @@ html, body, main { width: 100%; height: 100%; }
 
 /*** COlORS ***/
 .catalog-content { background-color: white; }
+.catalog-menu-footer,
+.catalog-menu-footer a,
+.catalog-content-product-figure-pricing,
 .catalog-content-product-nav-button { color: white; }
 
 .catalog-content-product-nav-button:before { background-color: #AAA; }
 
+.catalog-content-product-figure-pricing { background-color: rgba(0, 0, 0, .7); }
 .catalog-content-product-nav-button,
 .catalog-menu { background-color: black; }
 /*** END COLORS ***/
@@ -71,16 +75,28 @@ html, body, main { width: 100%; height: 100%; }
 	}
 	.catalog-content-product {
 	}
+	
+	.catalog-content-product-cart {
+		position: fixed;
+	}
+	
 	.catalog-content-product-figure {
 		width: 100%; height: 1%;
 	}
+	.catalog-content-product-figure-img_wrap,
 	.catalog-content-product-figure-img {
 		width: auto; max-width: 100%; height: 100%;
 	}
+	.catalog-content-product-figure-img_wrap {
+		position: relative;
+	}
+	.catalog-content-product-figure-pricing {
+		position: absolute; bottom: 30%; right: 19%;
+		max-width: 50%;
+		padding: .5em;
+	}
 	.catalog-content-product-nav {
 		padding: .5em;
-		
-		border: 1px solid purple;
 	}
 	.catalog-content-product-nav-button {
 		position: relative;
@@ -112,6 +128,18 @@ html, body, main { width: 100%; height: 100%; }
 		width: 33.3333%;
 		display: inline-block;
 	}
+	.catalog-menu-sublist-item {
+		position: relative;
+	}
+	.catalog-menu-sublist-item:before {
+		content: "Advertisment"; font-size: .5em;
+		position: absolute; top: 1em; right: 1em; z-index: 100;
+		width: auto; height: auto;
+		display: block;
+		padding: .5em;
+		
+		background-color: #AAA;
+	}
 		
 	.catalog-menu-label-img {
 	}
@@ -133,19 +161,30 @@ html, body, main { width: 100%; height: 100%; }
 /*** END INTERACTIVITY ***/
 
 /*** MEDIA QUERIES ***/
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 25em) {
+	/*** FONTS ***/
+	html, body, main { font-size: 14px; }
+}
+@media screen and (min-width: 25em) {
 	/*** FONTS ***/
 	html, body, main { font-size: 16px; }
+}
+@media screen and (max-width: 50em) {
+	/*** FONTS ***/
 	
 	/*** PAGES: CATALOG ==> .catalog ***/
 	.catalog { flex-direction: column; }
 	
-	.catalog-content { height: 60vh; }
-	.catalog-menu { margin-top: 60vh; }
+	.catalog-content { height: 70vh; }
+	.catalog-menu { margin-top: 70vh; }
 	
 	.catalog-content {
 		position: fixed; top: 0; left: 0;
 	}
+	.catalog-content-product-cart { bottom: 30%; right: 0; margin-bottom: 5em; }
+	
+	/*** DECORATION ***/
+	.d-laptop { display: none !important; }
 }
 @media screen and (min-width: 50em) {
 	/*** FONTS ***/
@@ -158,6 +197,10 @@ html, body, main { width: 100%; height: 100%; }
 	.catalog-content {
 		position: sticky; top: 0; left: 0;
 	}
+	.catalog-content-product-cart { bottom: 5em; right: 35%; }
+	
+	/*** DECORATION ***/
+	.d-mobile { display: none !important; }
 }
 /*** END MEDIA QUERIES ***/
 
@@ -176,3 +219,18 @@ html, body, main { width: 100%; height: 100%; }
 		margin: auto;
 	}
 /*** END DECORATION ***/
+
+/*** ANIMATION ***/
+{% for file in site.data.catalog %}{% for data in file %}
+#rdb4{{ data[0] | capitalize }}:checked ~ main .catalog-menu-list-item.nthChild-{{ data[0] | remove: "ctlg" }} .catalog-menu-label-img,{% endfor %}{% endfor %}
+.jekyllPlaceholderClassName { animation: aDance 1s infinite reverse; }
+@keyframes aDance {
+	0% { transform: rotate(0); }
+	50% { transform: rotate(1.9deg); }
+	100% { transform: rotate(0); }
+}
+/*** END ANIMATION ***/
+
+/*** SANDBOX ***/
+.catalog-content-product-figure-pricing { display: none !important; }
+/*** END SANDBOX ***/

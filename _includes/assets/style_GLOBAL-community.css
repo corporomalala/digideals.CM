@@ -7,27 +7,46 @@
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
-.uBubble-icon { color: black; }
+.uBubble-portrait-img { background-color: #eee; }
+
+.uBubble-icon { background-color: black; }
 /*** END COLORS ***/
+
+/*** FONTS ***/
+.uBubble.is-big .d-curvedText { font-size: 1em; }
+.uBubble.is-small .d-curvedText { font-size: .7em; }
+
+.m-footer { text-align: center; }
+.m-footer a { text-decoration: underline; }
+/*** END FONTS ***/
 
 /*** MEDIA ***/
 .uBubble-icon { background-image: url("/assets/images/icon_facebook_white.png"); }
 .uBubble-icon { background-size: cover !important; }
+
+.uBubble-portrait-img {// background-image: linear-gradient(#eee, white); }
 /*** END MEDIA ***/
 
 /*** UTILITIES ***/
-	/*** .u-bubbles ***/
+	/*** .uBubble ***/
 	.uBubble {
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
 	}
 	.uBubble-icon {
-		position: absolute; top: 2.5em; left: .5em;
-		width: 1.9em; height: 1.9em;
+		position: absolute; left: .5em;
 		display: block;
 		margin: auto;
 	}
+		.uBubble.is-big .uBubble-icon {
+			top: 2.5em;
+			width: 1.9em; height: 1.9em;
+		}
+		.uBubble.is-small .uBubble-icon {
+			top: 1.9em;
+			width: 1.25em; height: 1.25em;
+		}
 	.uBubble-portrait {
 		position: relative;
 	}
@@ -37,17 +56,29 @@
 		margin: auto;
 		border-radius: 50%;
 	}
+		.uBubble.is-big .uBubble-portrait-img { width: 7em; }
+		.uBubble.is-small .uBubble-portrait-img { width: 5em; }
 	
 	/*** .uMenu ***/
 	.uMenu {
-		position: fixed; top: 1.9em; left: 1.9em;
+		position: fixed; top: 0; left: 0;
 	}
+	
+	/*** .m-footer ***/
+	.m-footer { padding: 1em .5em; }
 /*** END UTILITIES ***/
 
 /*** COMPONENTS ***/
 	/*** GLOBAL ***/
 	.uBubble-icon { border-radius: .25em; }
 /*** END COMPONENTS ***/
+
+/*** MEDIA-QUERIES ***/
+@media screen and (max-width: 25em) {
+	/*** UTILITIES ***/
+	.uMenu .uBubble { display: none !important; }
+}
+/*** END MEDIA-QUERIES ***/
 
 /*** INTERACTIVITY ***/
 .uBubble-portrait-img:hover,
@@ -73,3 +104,6 @@
 	{% for i in (1..100) %}.d-curvedText span:nth-child({{ i }}) { transform: rotate({{ i | times: 10 }}deg); } {% endfor %}
 	.jekyllPlaceholderClass { AAA: AAA; }
 /*** END DECORATION ***/
+
+/*** SANDBOX ***/
+/*** END SANDBOX ***/

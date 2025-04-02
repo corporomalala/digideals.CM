@@ -1,0 +1,48 @@
+---
+scripts: "on"
+---
+		<input type="checkbox" id="chkbx4facebook" name="chkbx4facebook" />
+		<main>
+			<section class="community">
+				<div class="community-header">
+					<hgroup class="community-header-hgroup">
+						<h1 class="community-header-hgroup-title">Welcome to the Community!</h1>
+						<h2 class="community-header-hgroup-subtitle">DigiDeals is a Facebook store with hundreds of incredible gadgets and tools. Follow the Facebook page as we build our community!</h2>
+					</hgroup>
+				</div>
+				<section class="community-content d-cssCentered">
+					  <div class="fb-like" 
+						   data-href="https://facebook.com/profile.php?id=61571517723326" 
+						   data-width="100px"
+						   data-layout="standard"
+						   data-action="like" 
+						   data-size="large"  
+						   data-share="false">
+					  </div>
+				
+					<!--
+					<div class="fb-login-button js-login" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="true"></div>
+					-->
+				</section>
+				
+				<footer class="community-footer">
+					<p class="community-footer-copyrights">{% include components/footer-text.html %}</p>
+				</footer>
+			</section>
+			
+			<aside class="facebook"><label for="chkbx4facebook" class="facebook-button"></label><div class="facebook_dock d-cssCentered">
+				<div class="facebook-iframe">
+					<!--
+					<iframe src='https://widgets.sociablekit.com/facebook-page-posts/iframe/25525279' frameborder='0' width='100%' height='1000'></iframe>
+					-->
+				
+					<iframe
+						src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61571517723326&tabs=timeline&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+						style="width: 100%; height: 100%;"
+						tabs="timeline,messages"
+						allowTransparency="true" 
+						allow="encrypted-media">
+					</iframe>
+				</div>
+			</div></aside>
+		</main>

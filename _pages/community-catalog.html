@@ -11,14 +11,33 @@ permalink: /community/catalog/
 				<div class="catalog-content"><ol class="catalog-content-list">{% for file in aCatalogReversed %}{% assign iCatalog = forloop.length | minus: forloop.index | plus: 1 %}{% assign tCatalog = forloop.length %}{% for data in file %}
 					<li class="catalog-content-list-item nthChild-{{ data[0] | remove: 'ctlg' }}"><div class="catalog-content-product">
 						<figure class="catalog-content-product-figure d-cssCentered">
-							<img src="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-content-product-figure-img" />
+							<div class="catalog-content-product-figure-img_wrap">
+								<img src="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-content-product-figure-img" />{% for content in data[1] %}{% if content.minPrice %}
+								<span class="catalog-content-product-figure-pricing"><span class="d-laptop">Starting </span>from {{ content.minPrice }}</span>{% endif %}{% endfor %}
+							</div>
 						</figure>
-
+								{% for content in data[1] %}{% if content.pricing %}
+								<span d-cssCentered">{{ content.pricing }}</span>{% endif %}{% endfor %}
+								
+								{% for content in data[1] %}{% if content.items %}
+								<div class="catalog-content-product-cart">{% for products in content.items %}{% for productDetails in products %}
+									<div class="uBubble is-small">
+										<figure class="uBubble-portrait d-cssCentered">{% for productContent in productDetails[1] %}{% if productContent.description %}{% assign vMessage = "Hello, Madam Ella! I would like to place a new order for the " | append: productContent.description | append: "." %}{% endif %}{% endfor %}
+											<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}"><img src="/assets/images/catalog/{% for productContent in productDetails[1] %}{{ productContent.image }}{% endfor %}" class="uBubble-portrait-img" /></a>{% assign vTextPrice = "" %}{% for productContent in productDetails[1] %}{% if productContent.price %}{% assign vTextPrice = productContent.price %}{% endif %}{% endfor %}{% capture vTextPrice %}Buy {{ vTextPrice }}{% endcapture %}
+											<figcaption class="uBubble-portrait-caption d-curvedText">{% assign vCurvedText = vTextPrice | split: "" %}{% for i in vCurvedText %}
+												<span>{{ i | upcase }}</span>{% endfor %}
+											</figcaption>	
+										</figure>
+										<span class="uBubble-icon"></span>
+									</div>
+									<br />{% endfor %}{% endfor %}
+								</div>{% endif %}{% endfor %}
+							
 						<nav class="catalog-content-product-nav d-cssCentered">
-							<label for="rdb4Ctlg00{% if iCatalog == tCatalog %}01{% else %}{% if iCatalog <= 8 %}0{% endif %}{{ iCatalog | plus: 1 }}{% endif %}" class="js-btn{{ data[0] | capitalize }}_prev">Prev</label>
+							<label for="rdb4Ctlg00{% if iCatalog == tCatalog %}01{% else %}{% if iCatalog <= 8 %}0{% endif %}{{ iCatalog | plus: 1 }}{% endif %}" class="js-btn{{ data[0] | capitalize }}_prev"><span class="d-laptop">Prev</span><span class="d-mobile">&lt;</span></label>
 						
-							<a href="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-content-product-nav-button is-icon is-image" download>Download Image</a>{% for content in data[1] %}{% if content.code contains "pckg" %}
-							<a href="/assets/images/catalog/{{ content.code }}.mp4" class="catalog-content-product-nav-button is-icon is-video" download>Download Image</a>
+							<a href="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-content-product-nav-button is-icon is-image" title="Download Image" download>Download Image</a>{% for content in data[1] %}{% if content.code contains "pckg" %}
+							<a href="/assets/images/catalog/{{ content.code }}.mp4" class="catalog-content-product-nav-button is-icon is-video" title="Download Video" download>Download Video</a>
 							<!--
 							<video class="videos-video" controls preload="none" loading="lazy">
 								<source src="/assets/videos/trailer.mp4" type="video/mp4" />
@@ -27,20 +46,26 @@ permalink: /community/catalog/
 							{% assign vMessage = "Hello, Madam Ella! I would like to place a new order." %}
 							<a href="https://m.me/61571517723326?text={{ vMessage | replace: ' ', '%20' }}" class="catalog-content-product-nav-button is-text" title="Place an Order">Place an Order</a>
 							
-							<label for="rdb4Ctlg00{% if iCatalog == 1 %}{{ tCatalog }}{% else %}{% if iCatalog <= 10 %}0{% endif %}{{ iCatalog | minus: 1 }}{% endif %}" class="js-btn{{ data[0] | capitalize }}_next">Next</label>
+							<label for="rdb4Ctlg00{% if iCatalog == 1 %}{{ tCatalog }}{% else %}{% if iCatalog <= 10 %}0{% endif %}{{ iCatalog | minus: 1 }}{% endif %}" class="js-btn{{ data[0] | capitalize }}_next"><span class="d-laptop">Next</span><span class="d-mobile">&gt;</span></label>
 						</nav>
 					</div></li>{% endfor %}{% endfor %}
 				</ol></div>
-				<nav class="catalog-menu"><ol class="catalog-menu-list">
-					{% for i in (1..1) %}{% for file in aCatalogReversed %}{% assign iMenu = forloop.index %}{% assign tMenu = forloop.length %}{% assign AD = 9 %}{% assign iAD = AD %}{% for data in file %}<li class="catalog-menu-list-item nthChild-{{ data[0] | remove: 'ctlg' }}">
-						<label for="rdb4{{ data[0] | capitalize }}" class="catalog-menu-label"><img src="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-menu-label-img" /></label>
-					</li>{% if iMenu == iAD %}
-					{% assign iAD = iAD | plus: AD %}
-					<ul class="catalog-menu-sublist">{% for i in (1..2) %}
-						<li class="catalog-menu-sublist-item"><img src="/assets/images/catalog/pckg0001.png" /></li>{% endfor %}
-					</ul>
+				<nav class="catalog-menu">
+					<ol class="catalog-menu-list">{% assign AD = 9 %}{% assign iAD = AD %}
+						{% for i in (1..1) %}{% for file in aCatalogReversed %}{% assign iMenu = forloop.index %}{% assign tMenu = forloop.length %}{% for data in file %}<li class="catalog-menu-list-item nthChild-{{ data[0] | remove: 'ctlg' }}">
+							<label for="rdb4{{ data[0] | capitalize }}" class="catalog-menu-label"><img src="/assets/images/catalog/{% for content in data[1] %}{{ content.code }}{% endfor %}.png" class="catalog-menu-label-img" /></label>
+						</li>{% if iMenu == iAD %}
+						{% assign iAD = iAD | plus: AD %}
+						<!-- ADVERTISMENT -->
+						<ul class="catalog-menu-sublist">{% for i in (1..2) %}{% assign adItem = iAD | divided_by: 9 | minus: 1 | times: 2 %}
+							<li class="catalog-menu-sublist-item"><img src="/assets/images/AD-{% if forloop.first %}{{ adItem | minus: 1 }}{% else %}{{ adItem }}{% endif %}.png" class="catalog-menu-ad" /></li><!--
+							<li class="catalog-menu-sublist-item"><img src="/assets/images/catalog/pckg000{% if forloop.first %}{{ adItem | minus: 1 }}{% else %}{{ adItem }}{% endif %}.png" /></li>-->{% endfor %}
+						</ul>
+						
+						{% endif %}{% endfor %}{% endfor %}{% endfor %}
+					</ol>
 					
-					{% endif %}{% endfor %}{% endfor %}{% endfor %}
-				</ol></nav>
+					<footer class="catalog-menu-footer m-footer">{% include components/footer-text.html %}</footer>
+				</nav>
 			</section>
 		</main>
