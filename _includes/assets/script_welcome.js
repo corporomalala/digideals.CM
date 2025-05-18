@@ -92,7 +92,7 @@
 /*** END LIBRARY ==> map ***/
 
 /*** PROMO CODE ***/
-	var aVouchers = [{"NEW-NOW-1234": "2025-01-26"}, {"NEW-FEB-1234": "2025-02-01"}];
+	var aVouchers = [{"PaxiKA", "2025-31-12"}, {"NEW-NOW-1234": "2025-01-26"}, {"NEW-FEB-1234": "2025-02-01"}];
 	function checkVoucher(e) {
 		e.preventDefault();
 
